@@ -432,7 +432,7 @@ row by overwriting its contents repeatedly.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_repl'>repl</span><span class='rparen'>)</span>
   <span class='ivar'>@repl</span>   <span class='op'>=</span> <span class='id identifier rubyid_repl'>repl</span>
   <span class='ivar'>@window</span> <span class='op'>=</span> <span class='id identifier rubyid_repl'>repl</span><span class='period'>.</span><span class='id identifier rubyid_window'>window</span>
-  <span class='ivar'>@rows</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+  <span class='ivar'>@rows</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
   <span class='ivar'>@cursor</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@snapshot</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@offset</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -963,7 +963,7 @@ the width of the buffer.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:22 2026 by
+  Generated on Sat Aug 22 07:08:32 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

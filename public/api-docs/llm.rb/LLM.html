@@ -75,17 +75,27 @@
 
   
   
+  <dl>
+      <dt>Extended by:</dt>
+      <dd><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></dd>
+  </dl>
+  
   
   
   
 
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></dd>
+  </dl>
   
 
   
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/llm.rb<span class="defines">,<br>
-  lib/llm/pipe.rb,<br> lib/llm/repl.rb,<br> lib/llm/agent.rb,<br> lib/llm/error.rb,<br> lib/llm/guard.rb,<br> lib/llm/skill.rb,<br> lib/llm/utils.rb,<br> lib/llm/buffer.rb,<br> lib/llm/stream.rb,<br> lib/llm/tracer.rb,<br> lib/llm/context.rb,<br> lib/llm/message.rb,<br> lib/llm/session.rb,<br> lib/llm/uridata.rb,<br> lib/llm/version.rb,<br> lib/llm/contract.rb,<br> lib/llm/response.rb,<br> lib/llm/compactor.rb,<br> lib/llm/transport.rb,<br> lib/llm/tracer/null.rb,<br> lib/llm/transformer.rb,<br> lib/llm/eventhandler.rb,<br> lib/llm/json_adapter.rb,<br> lib/llm/providers/xai.rb,<br> lib/llm/providers/zai.rb,<br> lib/llm/tracer/logger.rb,<br> lib/llm/providers/google.rb,<br> lib/llm/providers/ollama.rb,<br> lib/llm/providers/openai.rb,<br> lib/llm/tracer/telemetry.rb,<br> lib/llm/providers/bedrock.rb,<br> lib/llm/providers/mistral.rb,<br> lib/llm/providers/deepseek.rb,<br> lib/llm/providers/llamacpp.rb,<br> lib/llm/providers/moonshot.rb,<br> lib/llm/providers/anthropic.rb,<br> lib/llm/providers/deepinfra.rb,<br> lib/llm/tracer/pretty_logger.rb</span>
+  lib/llm/pipe.rb,<br> lib/llm/repl.rb,<br> lib/llm/agent.rb,<br> lib/llm/error.rb,<br> lib/llm/guard.rb,<br> lib/llm/skill.rb,<br> lib/llm/utils.rb,<br> lib/llm/buffer.rb,<br> lib/llm/stream.rb,<br> lib/llm/tracer.rb,<br> lib/llm/context.rb,<br> lib/llm/message.rb,<br> lib/llm/session.rb,<br> lib/llm/uridata.rb,<br> lib/llm/version.rb,<br> lib/llm/contract.rb,<br> lib/llm/response.rb,<br> lib/llm/compactor.rb,<br> lib/llm/transport.rb,<br> lib/llm/tracer/null.rb,<br> lib/llm/transformer.rb,<br> lib/llm/eventhandler.rb,<br> lib/llm/json_adapter.rb,<br> lib/llm/providers/xai.rb,<br> lib/llm/providers/zai.rb,<br> lib/llm/tracer/logger.rb,<br> lib/llm/providers/google.rb,<br> lib/llm/providers/ollama.rb,<br> lib/llm/providers/openai.rb,<br> lib/llm/tracer/telemetry.rb,<br> lib/llm/providers/alibaba.rb,<br> lib/llm/providers/bedrock.rb,<br> lib/llm/providers/mistral.rb,<br> lib/llm/providers/deepseek.rb,<br> lib/llm/providers/llamacpp.rb,<br> lib/llm/providers/moonshot.rb,<br> lib/llm/providers/anthropic.rb,<br> lib/llm/providers/deepinfra.rb,<br> lib/llm/tracer/pretty_logger.rb</span>
 
 </dd>
   </dl>
@@ -94,7 +104,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>llm.rb is a zero-dependency AI runtime for Ruby. Twelve providers, six
+    <p>llm.rb is a zero-dependency AI runtime for Ruby. Thirteen providers, six
 concurrency strategies, MCP and A2A, streaming tool calls with
 cancellation, context compaction, and ORM persistence.</p>
 
@@ -111,7 +121,7 @@ cancellation, context compaction, and ORM persistence.</p>
 </div></h5>
       
       <pre class="example code"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm</span><span class='tstring_end'>&quot;</span></span>
-<span class='id identifier rubyid_llm'>llm</span> <span class='op'>=</span> <span class='const'>LLM</span><span class='period'>.</span><span class='id identifier rubyid_deepseek'><span class='object_link'><a href="#deepseek-class_method" title="LLM.deepseek (method)">deepseek</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KEY</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>            <span class='comment'># 1. pick a provider
+<span class='id identifier rubyid_llm'>llm</span> <span class='op'>=</span> <span class='const'>LLM</span><span class='period'>.</span><span class='id identifier rubyid_deepseek'><span class='object_link'><a href="#deepseek-instance_method" title="LLM#deepseek (method)">deepseek</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KEY</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>            <span class='comment'># 1. pick a provider
 </span><span class='id identifier rubyid_agent'>agent</span> <span class='op'>=</span> <span class='const'>LLM</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Agent.html" title="LLM::Agent (class)">Agent</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Agent.html#initialize-instance_method" title="LLM::Agent#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_llm'>llm</span><span class='comma'>,</span> <span class='label'>stream:</span> <span class='gvar'>$stdout</span><span class='rparen'>)</span>   <span class='comment'># 2. create an agent
 </span><span class='id identifier rubyid_agent'>agent</span><span class='period'>.</span><span class='id identifier rubyid_talk'>talk</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello world</span><span class='tstring_end'>&quot;</span></span>                       <span class='comment'># 3. talk to it</span></code></pre>
     
@@ -135,7 +145,7 @@ cancellation, context compaction, and ORM persistence.</p>
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="LLM/A2A.html" title="LLM::A2A (class)">A2A</a></span>, <span class='object_link'><a href="LLM/Agent.html" title="LLM::Agent (class)">Agent</a></span>, <span class='object_link'><a href="LLM/Anthropic.html" title="LLM::Anthropic (class)">Anthropic</a></span>, <span class='object_link'><a href="LLM/Bedrock.html" title="LLM::Bedrock (class)">Bedrock</a></span>, <span class='object_link'><a href="LLM/Buffer.html" title="LLM::Buffer (class)">Buffer</a></span>, <span class='object_link'><a href="LLM/Compactor.html" title="LLM::Compactor (class)">Compactor</a></span>, <span class='object_link'><a href="LLM/Context.html" title="LLM::Context (class)">Context</a></span>, <span class='object_link'><a href="LLM/Cost.html" title="LLM::Cost (class)">Cost</a></span>, <span class='object_link'><a href="LLM/DeepInfra.html" title="LLM::DeepInfra (class)">DeepInfra</a></span>, <span class='object_link'><a href="LLM/DeepSeek.html" title="LLM::DeepSeek (class)">DeepSeek</a></span>, <span class='object_link'><a href="LLM/Error.html" title="LLM::Error (class)">Error</a></span>, <span class='object_link'><a href="LLM/File.html" title="LLM::File (class)">File</a></span>, <span class='object_link'><a href="LLM/Function.html" title="LLM::Function (class)">Function</a></span>, <span class='object_link'><a href="LLM/Google.html" title="LLM::Google (class)">Google</a></span>, <span class='object_link'><a href="LLM/Guard.html" title="LLM::Guard (class)">Guard</a></span>, <span class='object_link'><a href="LLM/JSONAdapter.html" title="LLM::JSONAdapter (class)">JSONAdapter</a></span>, <span class='object_link'><a href="LLM/LlamaCpp.html" title="LLM::LlamaCpp (class)">LlamaCpp</a></span>, <span class='object_link'><a href="LLM/MCP.html" title="LLM::MCP (class)">MCP</a></span>, <span class='object_link'><a href="LLM/Message.html" title="LLM::Message (class)">Message</a></span>, <span class='object_link'><a href="LLM/Mistral.html" title="LLM::Mistral (class)">Mistral</a></span>, <span class='object_link'><a href="LLM/Model.html" title="LLM::Model (class)">Model</a></span>, <span class='object_link'><a href="LLM/Moonshot.html" title="LLM::Moonshot (class)">Moonshot</a></span>, <span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span>, <span class='object_link'><a href="LLM/Ollama.html" title="LLM::Ollama (class)">Ollama</a></span>, <span class='object_link'><a href="LLM/OpenAI.html" title="LLM::OpenAI (class)">OpenAI</a></span>, <span class='object_link'><a href="LLM/Pipe.html" title="LLM::Pipe (class)">Pipe</a></span>, <span class='object_link'><a href="LLM/Prompt.html" title="LLM::Prompt (class)">Prompt</a></span>, <span class='object_link'><a href="LLM/Provider.html" title="LLM::Provider (class)">Provider</a></span>, <span class='object_link'><a href="LLM/Registry.html" title="LLM::Registry (class)">Registry</a></span>, <span class='object_link'><a href="LLM/Repl.html" title="LLM::Repl (class)">Repl</a></span>, <span class='object_link'><a href="LLM/Response.html" title="LLM::Response (class)">Response</a></span>, <span class='object_link'><a href="LLM/Schema.html" title="LLM::Schema (class)">Schema</a></span>, <span class='object_link'><a href="LLM/ServerTool.html" title="LLM::ServerTool (class)">ServerTool</a></span>, <span class='object_link'><a href="LLM/Skill.html" title="LLM::Skill (class)">Skill</a></span>, <span class='object_link'><a href="LLM/Stream.html" title="LLM::Stream (class)">Stream</a></span>, <span class='object_link'><a href="LLM/Tool.html" title="LLM::Tool (class)">Tool</a></span>, <span class='object_link'><a href="LLM/Tracer.html" title="LLM::Tracer (class)">Tracer</a></span>, <span class='object_link'><a href="LLM/Transformer.html" title="LLM::Transformer (class)">Transformer</a></span>, <span class='object_link'><a href="LLM/Transport.html" title="LLM::Transport (class)">Transport</a></span>, <span class='object_link'><a href="LLM/URIData.html" title="LLM::URIData (class)">URIData</a></span>, <span class='object_link'><a href="LLM/Usage.html" title="LLM::Usage (class)">Usage</a></span>, <span class='object_link'><a href="LLM/XAI.html" title="LLM::XAI (class)">XAI</a></span>, <span class='object_link'><a href="LLM/ZAI.html" title="LLM::ZAI (class)">ZAI</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="LLM/A2A.html" title="LLM::A2A (class)">A2A</a></span>, <span class='object_link'><a href="LLM/Agent.html" title="LLM::Agent (class)">Agent</a></span>, <span class='object_link'><a href="LLM/Alibaba.html" title="LLM::Alibaba (class)">Alibaba</a></span>, <span class='object_link'><a href="LLM/Anthropic.html" title="LLM::Anthropic (class)">Anthropic</a></span>, <span class='object_link'><a href="LLM/Bedrock.html" title="LLM::Bedrock (class)">Bedrock</a></span>, <span class='object_link'><a href="LLM/Buffer.html" title="LLM::Buffer (class)">Buffer</a></span>, <span class='object_link'><a href="LLM/Compactor.html" title="LLM::Compactor (class)">Compactor</a></span>, <span class='object_link'><a href="LLM/Context.html" title="LLM::Context (class)">Context</a></span>, <span class='object_link'><a href="LLM/Cost.html" title="LLM::Cost (class)">Cost</a></span>, <span class='object_link'><a href="LLM/DeepInfra.html" title="LLM::DeepInfra (class)">DeepInfra</a></span>, <span class='object_link'><a href="LLM/DeepSeek.html" title="LLM::DeepSeek (class)">DeepSeek</a></span>, <span class='object_link'><a href="LLM/Error.html" title="LLM::Error (class)">Error</a></span>, <span class='object_link'><a href="LLM/File.html" title="LLM::File (class)">File</a></span>, <span class='object_link'><a href="LLM/Function.html" title="LLM::Function (class)">Function</a></span>, <span class='object_link'><a href="LLM/Google.html" title="LLM::Google (class)">Google</a></span>, <span class='object_link'><a href="LLM/Guard.html" title="LLM::Guard (class)">Guard</a></span>, <span class='object_link'><a href="LLM/JSONAdapter.html" title="LLM::JSONAdapter (class)">JSONAdapter</a></span>, <span class='object_link'><a href="LLM/LlamaCpp.html" title="LLM::LlamaCpp (class)">LlamaCpp</a></span>, <span class='object_link'><a href="LLM/MCP.html" title="LLM::MCP (class)">MCP</a></span>, <span class='object_link'><a href="LLM/Message.html" title="LLM::Message (class)">Message</a></span>, <span class='object_link'><a href="LLM/Mistral.html" title="LLM::Mistral (class)">Mistral</a></span>, <span class='object_link'><a href="LLM/Model.html" title="LLM::Model (class)">Model</a></span>, <span class='object_link'><a href="LLM/Moonshot.html" title="LLM::Moonshot (class)">Moonshot</a></span>, <span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span>, <span class='object_link'><a href="LLM/Ollama.html" title="LLM::Ollama (class)">Ollama</a></span>, <span class='object_link'><a href="LLM/OpenAI.html" title="LLM::OpenAI (class)">OpenAI</a></span>, <span class='object_link'><a href="LLM/Pipe.html" title="LLM::Pipe (class)">Pipe</a></span>, <span class='object_link'><a href="LLM/Prompt.html" title="LLM::Prompt (class)">Prompt</a></span>, <span class='object_link'><a href="LLM/Provider.html" title="LLM::Provider (class)">Provider</a></span>, <span class='object_link'><a href="LLM/Registry.html" title="LLM::Registry (class)">Registry</a></span>, <span class='object_link'><a href="LLM/Repl.html" title="LLM::Repl (class)">Repl</a></span>, <span class='object_link'><a href="LLM/Response.html" title="LLM::Response (class)">Response</a></span>, <span class='object_link'><a href="LLM/Schema.html" title="LLM::Schema (class)">Schema</a></span>, <span class='object_link'><a href="LLM/ServerTool.html" title="LLM::ServerTool (class)">ServerTool</a></span>, <span class='object_link'><a href="LLM/Skill.html" title="LLM::Skill (class)">Skill</a></span>, <span class='object_link'><a href="LLM/Stream.html" title="LLM::Stream (class)">Stream</a></span>, <span class='object_link'><a href="LLM/Tool.html" title="LLM::Tool (class)">Tool</a></span>, <span class='object_link'><a href="LLM/Tracer.html" title="LLM::Tracer (class)">Tracer</a></span>, <span class='object_link'><a href="LLM/Transformer.html" title="LLM::Transformer (class)">Transformer</a></span>, <span class='object_link'><a href="LLM/Transport.html" title="LLM::Transport (class)">Transport</a></span>, <span class='object_link'><a href="LLM/URIData.html" title="LLM::URIData (class)">URIData</a></span>, <span class='object_link'><a href="LLM/Usage.html" title="LLM::Usage (class)">Usage</a></span>, <span class='object_link'><a href="LLM/XAI.html" title="LLM::XAI (class)">XAI</a></span>, <span class='object_link'><a href="LLM/ZAI.html" title="LLM::ZAI (class)">ZAI</a></span>
     
   
 </p>
@@ -147,6 +157,24 @@ cancellation, context compaction, and ORM persistence.</p>
     </h2>
 
     <dl class="constants">
+      
+        <dt id="UNDEFINED-constant" class="">UNDEFINED =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Object.html#initialize-instance_method" title="LLM::Object#initialize (method)">new</a></span></span></pre></dd>
       
         <dt id="UnauthorizedError-constant" class="">UnauthorizedError =
           <div class="docstring">
@@ -177,6 +205,24 @@ cancellation, context compaction, and ORM persistence.</p>
 </div>
         </dt>
         <dd><pre class="code"><span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="LLM/Error.html" title="LLM::Error (class)">Error</a></span></span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="InsufficientQuotaError-constant" class="">InsufficientQuotaError =
+          <div class="docstring">
+  <div class="discussion">
+    <p>A tokens-per-minute (TPM) rate limit. Alibaba reports this as
+<code>Throttling.AllocationQuota</code> / <code>insufficient_quota</code>. It is a
+rate limit (retriable), distinct from a request-rate limit only
+for classification.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#RateLimitError-constant" title="LLM::RateLimitError (constant)">RateLimitError</a></span></span><span class='rparen'>)</span></pre></dd>
       
         <dt id="ServerError-constant" class="">ServerError =
           <div class="docstring">
@@ -378,7 +424,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <dt id="VERSION-constant" class="">VERSION =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>14.0.0</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>15.0.3</span><span class='tstring_end'>&quot;</span></span></pre></dd>
       
         <dt id="Command-constant" class="">Command =
           <div class="docstring">
@@ -459,7 +505,40 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#json-class_method" title="json (class method)">.<strong>json</strong>  &#x21d2; Class </a>
+      <a href="#require-class_method" title="require (class method)">.<strong>require</strong>(name, version = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Requires an optional runtime dependency.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+    
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#json-instance_method" title="#json (instance method)">#<strong>json</strong>  &#x21d2; Class </a>
     
 
     
@@ -482,7 +561,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#json=-class_method" title="json= (class method)">.<strong>json=</strong>(adapter)  </a>
+      <a href="#json=-instance_method" title="#json= (instance method)">#<strong>json=</strong>(adapter)  </a>
     
 
     
@@ -505,7 +584,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#anthropic-class_method" title="anthropic (class method)">.<strong>anthropic</strong>  &#x21d2; Object </a>
+      <a href="#anthropic-instance_method" title="#anthropic (instance method)">#<strong>anthropic</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -527,7 +606,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#google-class_method" title="google (class method)">.<strong>google</strong>  &#x21d2; Object </a>
+      <a href="#google-instance_method" title="#google (instance method)">#<strong>google</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -549,7 +628,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#ollama-class_method" title="ollama (class method)">.<strong>ollama</strong>(key: nil)  &#x21d2; Object </a>
+      <a href="#ollama-instance_method" title="#ollama (instance method)">#<strong>ollama</strong>(key: nil)  &#x21d2; Object </a>
     
 
     
@@ -571,7 +650,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#llamacpp-class_method" title="llamacpp (class method)">.<strong>llamacpp</strong>(key: nil)  &#x21d2; Object </a>
+      <a href="#llamacpp-instance_method" title="#llamacpp (instance method)">#<strong>llamacpp</strong>(key: nil)  &#x21d2; Object </a>
     
 
     
@@ -593,7 +672,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#deepseek-class_method" title="deepseek (class method)">.<strong>deepseek</strong>  &#x21d2; Object </a>
+      <a href="#deepseek-instance_method" title="#deepseek (instance method)">#<strong>deepseek</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -615,7 +694,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#openai-class_method" title="openai (class method)">.<strong>openai</strong>  &#x21d2; Object </a>
+      <a href="#openai-instance_method" title="#openai (instance method)">#<strong>openai</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -637,7 +716,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#deepinfra-class_method" title="deepinfra (class method)">.<strong>deepinfra</strong>  &#x21d2; Object </a>
+      <a href="#deepinfra-instance_method" title="#deepinfra (instance method)">#<strong>deepinfra</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -659,7 +738,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#bedrock-class_method" title="bedrock (class method)">.<strong>bedrock</strong>  &#x21d2; Object </a>
+      <a href="#xai-instance_method" title="#xai (instance method)">#<strong>xai</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -681,7 +760,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#xai-class_method" title="xai (class method)">.<strong>xai</strong>  &#x21d2; Object </a>
+      <a href="#mistral-instance_method" title="#mistral (instance method)">#<strong>mistral</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -703,7 +782,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mistral-class_method" title="mistral (class method)">.<strong>mistral</strong>  &#x21d2; Object </a>
+      <a href="#zai-instance_method" title="#zai (instance method)">#<strong>zai</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -725,7 +804,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#zai-class_method" title="zai (class method)">.<strong>zai</strong>  &#x21d2; Object </a>
+      <a href="#moonshot-instance_method" title="#moonshot (instance method)">#<strong>moonshot</strong>(key: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -747,7 +826,31 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#moonshot-class_method" title="moonshot (class method)">.<strong>moonshot</strong>  &#x21d2; Object </a>
+      <a href="#alibaba-instance_method" title="#alibaba (instance method)">#<strong>alibaba</strong>(key: UNDEFINED)  &#x21d2; Object </a>
+    
+
+    
+      (also: #aliyun)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bedrock-instance_method" title="#bedrock (instance method)">#<strong>bedrock</strong>(access_key_id: UNDEFINED, secret_access_key: UNDEFINED, region: UNDEFINED)  &#x21d2; Object </a>
     
 
     
@@ -769,7 +872,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mcp-class_method" title="mcp (class method)">.<strong>mcp</strong>(**opts)  &#x21d2; LLM::MCP </a>
+      <a href="#mcp-instance_method" title="#mcp (instance method)">#<strong>mcp</strong>(**opts)  &#x21d2; LLM::MCP </a>
     
 
     
@@ -791,7 +894,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#a2a-class_method" title="a2a (class method)">.<strong>a2a</strong>(http:, binding: :rest)  &#x21d2; LLM::A2A </a>
+      <a href="#a2a-instance_method" title="#a2a (instance method)">#<strong>a2a</strong>(http:, binding: :rest)  &#x21d2; LLM::A2A </a>
     
 
     
@@ -814,7 +917,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#function-class_method" title="function (class method)">.<strong>function</strong>(key, &amp;b)  &#x21d2; LLM::Function </a>
+      <a href="#function-instance_method" title="#function (instance method)">#<strong>function</strong>(key, &amp;b)  &#x21d2; LLM::Function </a>
     
 
     
@@ -837,7 +940,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#logger-class_method" title="logger (class method)">.<strong>logger</strong>(llm, **params)  &#x21d2; LLM::Tracer::Logger </a>
+      <a href="#logger-instance_method" title="#logger (instance method)">#<strong>logger</strong>(llm, **params)  &#x21d2; LLM::Tracer::Logger </a>
     
 
     
@@ -859,7 +962,7 @@ cancellation, context compaction, and ORM persistence.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#lock-class_method" title="lock (class method)">.<strong>lock</strong>(name, &amp;block)  </a>
+      <a href="#lock-instance_method" title="#lock (instance method)">#<strong>lock</strong>(name, &amp;block)  </a>
     
 
     
@@ -874,29 +977,6 @@ cancellation, context compaction, and ORM persistence.</p>
 
   
     <span class="summary_desc"><div class='inline'><p>Provides a thread-safe lock.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#require-class_method" title="require (class method)">.<strong>require</strong>(name, version = nil)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Requires an optional runtime dependency.</p>
 </div></span>
   
 </li>
@@ -1053,15 +1133,15 @@ cancellation, context compaction, and ORM persistence.</p>
       <pre class="lines">
 
 
-90
-91
-92
-93
-94
-95</pre>
+96
+97
+98
+99
+100
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_registry_for'>registry_for</span><span class='lparen'>(</span><span class='id identifier rubyid_llm'>llm</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:registry</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -1075,9 +1155,126 @@ cancellation, context compaction, and ORM persistence.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="json-class_method">
+  <h3 class="signature " id="require-class_method">
   
-    .<strong>json</strong>  &#x21d2; <tt>Class</tt> 
+    .<strong>require</strong>(name, version = nil)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Requires an optional runtime dependency</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of a gem</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>version</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Optional gem version</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="#LoadError-constant" title="LLM::LoadError (constant)">LLM::LoadError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>When the dependency cannot be loaded</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_require'>require</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_names'>names</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>xchan</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>xchan.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>net/http/persistent</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>net-http-persistent</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_gem'>gem</span><span class='lparen'>(</span><span class='id identifier rubyid_names'>names</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_version'>version</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>LoadError</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_names'>names</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="#LoadError-constant" title="LLM::LoadError (constant)">LoadError</a></span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_version'>version</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_version'>version</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='embexpr_end'>}</span><span class='tstring_content'> is an optional </span><span class='tstring_end'>&quot;</span></span> \
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>runtime dependency but it does not appear to be installed. </span><span class='tstring_end'>&quot;</span></span> \
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Consider &#39;gem install </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;, adding &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; to your Gemfile or </span><span class='tstring_end'>&quot;</span></span> \
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>opting out of the functionality provided by &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="json-instance_method">
+  
+    #<strong>json</strong>  &#x21d2; <tt>Class</tt> 
   
 
   
@@ -1116,12 +1313,12 @@ cancellation, context compaction, and ORM persistence.</p>
       <pre class="lines">
 
 
-103
-104
-105</pre>
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_json'>json</span>
   <span class='ivar'>@json</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="LLM/JSONAdapter.html" title="LLM::JSONAdapter (class)">JSONAdapter</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title="LLM::JSONAdapter::JSON (class)">JSON</a></span></span>
@@ -1132,9 +1329,9 @@ cancellation, context compaction, and ORM persistence.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="json=-class_method">
+  <h3 class="signature " id="json=-instance_method">
   
-    .<strong>json=</strong>(adapter)  
+    #<strong>json=</strong>(adapter)  
   
 
   
@@ -1183,10 +1380,6 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-115
-116
-117
-118
 119
 120
 121
@@ -1197,10 +1390,14 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 126
 127
 128
-129</pre>
+129
+130
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 119</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_json='>json=</span><span class='lparen'>(</span><span class='id identifier rubyid_adapter'>adapter</span><span class='rparen'>)</span>
   <span class='ivar'>@json</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='id identifier rubyid_adapter'>adapter</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -1223,41 +1420,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="anthropic-class_method">
+  <h3 class="signature " id="anthropic-instance_method">
   
-    .<strong>anthropic</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-134
-135
-136
-137</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 134</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_anthropic'>anthropic</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/anthropic</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Anthropic.html" title="LLM::Anthropic (class)">Anthropic</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Anthropic.html" title="LLM::Anthropic (class)">Anthropic</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Anthropic.html#initialize-instance_method" title="LLM::Anthropic#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="google-class_method">
-  
-    .<strong>google</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+    #<strong>anthropic</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
   
 
   
@@ -1269,17 +1434,25 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
+138
+139
+140
+141
 142
 143
 144
 145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 138</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_google'>google</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/google</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Google.html" title="LLM::Google (class)">Google</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Google.html" title="LLM::Google (class)">Google</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Google.html#initialize-instance_method" title="LLM::Google#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_anthropic'>anthropic</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/anthropic</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Anthropic.html" title="LLM::Anthropic (class)">Anthropic</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Anthropic.html" title="LLM::Anthropic (class)">Anthropic</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Anthropic.html#initialize-instance_method" title="LLM::Anthropic#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Anthropic.html" title="LLM::Anthropic (class)">Anthropic</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Anthropic.html#initialize-instance_method" title="LLM::Anthropic#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1287,9 +1460,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="ollama-class_method">
+  <h3 class="signature " id="google-instance_method">
   
-    .<strong>ollama</strong>(key: nil)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+    #<strong>google</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
   
 
   
@@ -1304,10 +1477,50 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 150
 151
 152
-153</pre>
+153
+154
+155
+156
+157</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/llm.rb', line 150</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_google'>google</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/google</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Google.html" title="LLM::Google (class)">Google</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Google.html" title="LLM::Google (class)">Google</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Google.html#initialize-instance_method" title="LLM::Google#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Google.html" title="LLM::Google (class)">Google</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Google.html#initialize-instance_method" title="LLM::Google#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ollama-instance_method">
+  
+    #<strong>ollama</strong>(key: nil)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+162
+163
+164
+165</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ollama'>ollama</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/ollama</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Ollama.html" title="LLM::Ollama (class)">Ollama</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -1319,9 +1532,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="llamacpp-class_method">
+  <h3 class="signature " id="llamacpp-instance_method">
   
-    .<strong>llamacpp</strong>(key: nil)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+    #<strong>llamacpp</strong>(key: nil)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
   
 
   
@@ -1333,13 +1546,13 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-158
-159
-160
-161</pre>
+170
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_llamacpp'>llamacpp</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/llamacpp</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/LlamaCpp.html" title="LLM::LlamaCpp (class)">LlamaCpp</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -1351,41 +1564,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="deepseek-class_method">
+  <h3 class="signature " id="deepseek-instance_method">
   
-    .<strong>deepseek</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-166
-167
-168
-169</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 166</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_deepseek'>deepseek</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/deepseek</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepSeek.html" title="LLM::DeepSeek (class)">DeepSeek</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepSeek.html" title="LLM::DeepSeek (class)">DeepSeek</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/DeepSeek.html#initialize-instance_method" title="LLM::DeepSeek#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="openai-class_method">
-  
-    .<strong>openai</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+    #<strong>deepseek</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
   
 
   
@@ -1397,49 +1578,25 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-174
-175
-176
-177</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 174</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_openai'>openai</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/openai</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/OpenAI.html" title="LLM::OpenAI (class)">OpenAI</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/OpenAI.html" title="LLM::OpenAI (class)">OpenAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/OpenAI.html#initialize-instance_method" title="LLM::OpenAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="deepinfra-class_method">
-  
-    .<strong>deepinfra</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+178
+179
+180
+181
 182
 183
 184
 185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 178</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_deepinfra'>deepinfra</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/deepinfra</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepInfra.html" title="LLM::DeepInfra (class)">DeepInfra</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepInfra.html" title="LLM::DeepInfra (class)">DeepInfra</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/DeepInfra.html#initialize-instance_method" title="LLM::DeepInfra#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_deepseek'>deepseek</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/deepseek</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepSeek.html" title="LLM::DeepSeek (class)">DeepSeek</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepSeek.html" title="LLM::DeepSeek (class)">DeepSeek</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/DeepSeek.html#initialize-instance_method" title="LLM::DeepSeek#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepSeek.html" title="LLM::DeepSeek (class)">DeepSeek</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/DeepSeek.html#initialize-instance_method" title="LLM::DeepSeek#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1447,9 +1604,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="bedrock-class_method">
+  <h3 class="signature " id="openai-instance_method">
   
-    .<strong>bedrock</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+    #<strong>openai</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
   
 
   
@@ -1464,14 +1621,22 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 190
 191
 192
-193</pre>
+193
+194
+195
+196
+197</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/llm.rb', line 190</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_bedrock'>bedrock</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/bedrock</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Bedrock.html" title="LLM::Bedrock (class)">Bedrock</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Bedrock.html" title="LLM::Bedrock (class)">Bedrock</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Bedrock.html#initialize-instance_method" title="LLM::Bedrock#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_openai'>openai</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/openai</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/OpenAI.html" title="LLM::OpenAI (class)">OpenAI</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/OpenAI.html" title="LLM::OpenAI (class)">OpenAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/OpenAI.html#initialize-instance_method" title="LLM::OpenAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/OpenAI.html" title="LLM::OpenAI (class)">OpenAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/OpenAI.html#initialize-instance_method" title="LLM::OpenAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1479,9 +1644,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="xai-class_method">
+  <h3 class="signature " id="deepinfra-instance_method">
   
-    .<strong>xai</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+    #<strong>deepinfra</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
   
 
   
@@ -1493,49 +1658,25 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-199
-200
-201
-202</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 199</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_xai'>xai</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/xai</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/XAI.html" title="LLM::XAI (class)">XAI</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/XAI.html" title="LLM::XAI (class)">XAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/XAI.html#initialize-instance_method" title="LLM::XAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="mistral-class_method">
-  
-    .<strong>mistral</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+202
+203
+204
+205
+206
+207
 208
-209
-210
-211</pre>
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 202</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_mistral'>mistral</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/mistral</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Mistral.html" title="LLM::Mistral (class)">Mistral</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Mistral.html" title="LLM::Mistral (class)">Mistral</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Mistral.html#initialize-instance_method" title="LLM::Mistral#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_deepinfra'>deepinfra</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/deepinfra</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepInfra.html" title="LLM::DeepInfra (class)">DeepInfra</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepInfra.html" title="LLM::DeepInfra (class)">DeepInfra</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/DeepInfra.html#initialize-instance_method" title="LLM::DeepInfra#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/DeepInfra.html" title="LLM::DeepInfra (class)">DeepInfra</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/DeepInfra.html#initialize-instance_method" title="LLM::DeepInfra#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1543,9 +1684,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="zai-class_method">
+  <h3 class="signature " id="xai-instance_method">
   
-    .<strong>zai</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+    #<strong>xai</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
   
 
   
@@ -1557,17 +1698,25 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
+215
+216
 217
 218
 219
-220</pre>
+220
+221
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 215</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_zai'>zai</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/zai</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/ZAI.html" title="LLM::ZAI (class)">ZAI</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/ZAI.html" title="LLM::ZAI (class)">ZAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/ZAI.html#initialize-instance_method" title="LLM::ZAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_xai'>xai</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/xai</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/XAI.html" title="LLM::XAI (class)">XAI</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/XAI.html" title="LLM::XAI (class)">XAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/XAI.html#initialize-instance_method" title="LLM::XAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/XAI.html" title="LLM::XAI (class)">XAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/XAI.html#initialize-instance_method" title="LLM::XAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1575,9 +1724,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="moonshot-class_method">
+  <h3 class="signature " id="mistral-instance_method">
   
-    .<strong>moonshot</strong>  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+    #<strong>mistral</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
   
 
   
@@ -1589,17 +1738,25 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-226
-227
 228
-229</pre>
+229
+230
+231
+232
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 226</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 228</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_moonshot'>moonshot</span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/moonshot</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Moonshot.html" title="LLM::Moonshot (class)">Moonshot</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Moonshot.html" title="LLM::Moonshot (class)">Moonshot</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Moonshot.html#initialize-instance_method" title="LLM::Moonshot#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_mistral'>mistral</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/mistral</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Mistral.html" title="LLM::Mistral (class)">Mistral</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Mistral.html" title="LLM::Mistral (class)">Mistral</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Mistral.html#initialize-instance_method" title="LLM::Mistral#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Mistral.html" title="LLM::Mistral (class)">Mistral</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Mistral.html#initialize-instance_method" title="LLM::Mistral#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1607,9 +1764,185 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="mcp-class_method">
+  <h3 class="signature " id="zai-instance_method">
   
-    .<strong>mcp</strong>(**opts)  &#x21d2; <tt><span class='object_link'><a href="LLM/MCP.html" title="LLM::MCP (class)">LLM::MCP</a></span></tt> 
+    #<strong>zai</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+241
+242
+243
+244
+245
+246
+247
+248</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 241</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_zai'>zai</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/zai</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/ZAI.html" title="LLM::ZAI (class)">ZAI</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/ZAI.html" title="LLM::ZAI (class)">ZAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/ZAI.html#initialize-instance_method" title="LLM::ZAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/ZAI.html" title="LLM::ZAI (class)">ZAI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/ZAI.html#initialize-instance_method" title="LLM::ZAI#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="moonshot-instance_method">
+  
+    #<strong>moonshot</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+254
+255
+256
+257
+258
+259
+260
+261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 254</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_moonshot'>moonshot</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/moonshot</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Moonshot.html" title="LLM::Moonshot (class)">Moonshot</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Moonshot.html" title="LLM::Moonshot (class)">Moonshot</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Moonshot.html#initialize-instance_method" title="LLM::Moonshot#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid___method__'>__method__</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Moonshot.html" title="LLM::Moonshot (class)">Moonshot</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Moonshot.html#initialize-instance_method" title="LLM::Moonshot#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="alibaba-instance_method">
+  
+    #<strong>alibaba</strong>(key: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='aliyun-instance_method'>aliyun</span></span>
+    </span>
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+267
+268
+269
+270
+271
+272
+273
+274</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 267</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_alibaba'>alibaba</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/alibaba</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Alibaba.html" title="LLM::Alibaba (class)">Alibaba</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Alibaba.html" title="LLM::Alibaba (class)">Alibaba</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Alibaba.html#initialize-instance_method" title="LLM::Alibaba#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='symbol'>:alibaba</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Alibaba.html" title="LLM::Alibaba (class)">Alibaba</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Alibaba.html#initialize-instance_method" title="LLM::Alibaba#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>key:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bedrock-instance_method">
+  
+    #<strong>bedrock</strong>(access_key_id: UNDEFINED, secret_access_key: UNDEFINED, region: UNDEFINED)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bedrock'>bedrock</span><span class='lparen'>(</span><span class='label'>access_key_id:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='label'>secret_access_key:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='label'>region:</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='symbol'>:require</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>llm/providers/bedrock</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Bedrock.html" title="LLM::Bedrock (class)">Bedrock</a></span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='lbracket'>[</span><span class='id identifier rubyid_access_key_id'>access_key_id</span><span class='comma'>,</span> <span class='id identifier rubyid_secret_access_key'>secret_access_key</span><span class='comma'>,</span> <span class='id identifier rubyid_region'>region</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='lbrace'>{</span> <span class='id identifier rubyid__1'>_1</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span> <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_access_key_id'>access_key_id</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>AWS_ACCESS_KEY_ID</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_access_key_id'>access_key_id</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='id identifier rubyid_secret_access_key'>secret_access_key</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>AWS_SECRET_ACCESS_KEY</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_secret_access_key'>secret_access_key</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='id identifier rubyid_region'>region</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>AWS_REGION</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_region'>region</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="#UNDEFINED-constant" title="LLM::UNDEFINED (constant)">UNDEFINED</a></span></span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_access_key_id'>access_key_id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>||</span> <span class='id identifier rubyid_secret_access_key'>secret_access_key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>you must provide an API key</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Bedrock.html" title="LLM::Bedrock (class)">Bedrock</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Bedrock.html#initialize-instance_method" title="LLM::Bedrock#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>access_key_id:</span><span class='comma'>,</span> <span class='label'>secret_access_key:</span><span class='comma'>,</span> <span class='label'>region:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Bedrock.html" title="LLM::Bedrock (class)">Bedrock</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Bedrock.html#initialize-instance_method" title="LLM::Bedrock#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>access_key_id:</span><span class='comma'>,</span> <span class='label'>secret_access_key:</span><span class='comma'>,</span> <span class='label'>region:</span><span class='comma'>,</span> <span class='op'>**</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mcp-instance_method">
+  
+    #<strong>mcp</strong>(**opts)  &#x21d2; <tt><span class='object_link'><a href="LLM/MCP.html" title="LLM::MCP (class)">LLM::MCP</a></span></tt> 
   
 
   
@@ -1719,12 +2052,12 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-243
-244
-245</pre>
+307
+308
+309</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 243</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 307</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mcp'>mcp</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/MCP.html" title="LLM::MCP (class)">MCP</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/MCP.html#initialize-instance_method" title="LLM::MCP#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -1735,9 +2068,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="a2a-class_method">
+  <h3 class="signature " id="a2a-instance_method">
   
-    .<strong>a2a</strong>(http:, binding: :rest)  &#x21d2; <tt><span class='object_link'><a href="LLM/A2A.html" title="LLM::A2A (class)">LLM::A2A</a></span></tt> 
+    #<strong>a2a</strong>(http:, binding: :rest)  &#x21d2; <tt><span class='object_link'><a href="LLM/A2A.html" title="LLM::A2A (class)">LLM::A2A</a></span></tt> 
   
 
   
@@ -1863,12 +2196,12 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-262
-263
-264</pre>
+326
+327
+328</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 326</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_a2a'>a2a</span><span class='lparen'>(</span><span class='label'>http:</span><span class='comma'>,</span> <span class='label'>binding:</span> <span class='symbol'>:rest</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/A2A.html" title="LLM::A2A (class)">A2A</a></span></span><span class='period'>.</span><span class='id identifier rubyid_http'><span class='object_link'><a href="LLM/A2A.html#http-class_method" title="LLM::A2A.http (method)">http</a></span></span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_http'>http</span><span class='comma'>,</span> <span class='label'>binding:</span><span class='rparen'>)</span>
@@ -1879,9 +2212,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="function-class_method">
+  <h3 class="signature " id="function-instance_method">
   
-    .<strong>function</strong>(key, &amp;b)  &#x21d2; <tt><span class='object_link'><a href="LLM/Function.html" title="LLM::Function (class)">LLM::Function</a></span></tt> 
+    #<strong>function</strong>(key, &amp;b)  &#x21d2; <tt><span class='object_link'><a href="LLM/Function.html" title="LLM::Function (class)">LLM::Function</a></span></tt> 
   
 
   
@@ -1970,12 +2303,12 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-281
-282
-283</pre>
+345
+346
+347</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 281</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 345</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_function'>function</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Function.html" title="LLM::Function (class)">Function</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Function.html#initialize-instance_method" title="LLM::Function#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
@@ -1986,9 +2319,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="logger-class_method">
+  <h3 class="signature " id="logger-instance_method">
   
-    .<strong>logger</strong>(llm, **params)  &#x21d2; <tt><span class='object_link'><a href="LLM/Tracer/Logger.html" title="LLM::Tracer::Logger (class)">LLM::Tracer::Logger</a></span></tt> 
+    #<strong>logger</strong>(llm, **params)  &#x21d2; <tt><span class='object_link'><a href="LLM/Tracer/Logger.html" title="LLM::Tracer::Logger (class)">LLM::Tracer::Logger</a></span></tt> 
   
 
   
@@ -2056,12 +2389,12 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-291
-292
-293</pre>
+355
+356
+357</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 355</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_logger'>logger</span><span class='lparen'>(</span><span class='id identifier rubyid_llm'>llm</span><span class='comma'>,</span> <span class='op'>**</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Tracer.html" title="LLM::Tracer (class)">Tracer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="LLM/Tracer/Logger.html" title="LLM::Tracer::Logger (class)">Logger</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="LLM/Tracer/Logger.html#initialize-instance_method" title="LLM::Tracer::Logger#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_llm'>llm</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -2072,9 +2405,9 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="lock-class_method">
+  <h3 class="signature " id="lock-instance_method">
   
-    .<strong>lock</strong>(name, &amp;block)  
+    #<strong>lock</strong>(name, &amp;block)  
   
 
   
@@ -2130,123 +2463,12 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
       <pre class="lines">
 
 
-300</pre>
+364</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 300</span>
+      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 364</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lock'>lock</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='ivar'>@monitors</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="require-class_method">
-  
-    .<strong>require</strong>(name, version = nil)  &#x21d2; <tt><span class='object_link'><a href="LLM/Object.html" title="LLM::Object (class)">Object</a></span></tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Requires an optional runtime dependency</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>name</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The name of a gem</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>version</span>
-      
-      
-        <span class='type'>(<tt>String</tt>, <tt>nil</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Optional gem version</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="#LoadError-constant" title="LLM::LoadError (constant)">LLM::LoadError</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>When the dependency cannot be loaded</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/llm.rb', line 73</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_require'>require</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_names'>names</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>xchan</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>xchan.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>net/http/persistent</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>net-http-persistent</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_gem'>gem</span><span class='lparen'>(</span><span class='id identifier rubyid_names'>names</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_version'>version</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-<span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>LoadError</span>
-  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_names'>names</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_name'>name</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="#LoadError-constant" title="LLM::LoadError (constant)">LoadError</a></span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_version'>version</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_version'>version</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='embexpr_end'>}</span><span class='tstring_content'> is an optional </span><span class='tstring_end'>&quot;</span></span> \
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>runtime dependency but it does not appear to be installed. </span><span class='tstring_end'>&quot;</span></span> \
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Consider &#39;gem install </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;, adding &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; to your Gemfile or </span><span class='tstring_end'>&quot;</span></span> \
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>opting out of the functionality provided by &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -2257,7 +2479,7 @@ Defaults to <span class='object_link'><a href="LLM/JSONAdapter/JSON.html" title=
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:15 2026 by
+  Generated on Sat Aug 22 07:08:24 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

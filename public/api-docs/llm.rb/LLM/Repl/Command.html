@@ -121,7 +121,7 @@ command is accessible via the <code>/</code> prefix: eg <code>/exit</code>.</p>
 
 </div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="Help.html" title="LLM::Repl::Help (class)">Help</a></span></p>
+  <p class="children"><span class='object_link'><a href="Help.html" title="LLM::Repl::Help (class)">Help</a></span>, <span class='object_link'><a href="Model.html" title="LLM::Repl::Model (class)">Model</a></span></p>
 </div>
 <h2>Defined Under Namespace</h2>
 <p class="children">
@@ -557,6 +557,29 @@ command is accessible via the <code>/</code> prefix: eg <code>/exit</code>.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#complete-instance_method" title="#complete (instance method)">#<strong>complete</strong>(**kwargs)  &#x21d2; Array&lt;String&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Completes the argument being typed.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
     
   
@@ -927,7 +950,7 @@ but &quot;/exitnow&quot; will not.</p>
       <pre class="code"><span class="info file"># File 'lib/llm/repl/command.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_inherited'>inherited</span><span class='lparen'>(</span><span class='id identifier rubyid_outer'>outer</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_lock'><span class='object_link'><a href="../../LLM.html#lock-class_method" title="LLM.lock (method)">lock</a></span></span><span class='lparen'>(</span><span class='symbol'>:inherited</span><span class='rparen'>)</span> <span class='kw'>do</span>
+  <span class='const'><span class='object_link'><a href="../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_lock'><span class='object_link'><a href="../../LLM.html#lock-instance_method" title="LLM#lock (method)">lock</a></span></span><span class='lparen'>(</span><span class='symbol'>:inherited</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='ivar'>@registry</span><span class='lbracket'>[</span><span class='id identifier rubyid_outer'>outer</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_outer'>outer</span>
     <span class='id identifier rubyid_outer'>outer</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='symbol'>:@parameters</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_outer'>outer</span><span class='period'>.</span><span class='id identifier rubyid_define_singleton_method'>define_singleton_method</span><span class='lparen'>(</span><span class='symbol'>:inherited</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_inner'>inner</span><span class='op'>|</span>
@@ -1558,12 +1581,12 @@ description, and parameter details.</p>
       <pre class="lines">
 
 
-223
-224
-225</pre>
+234
+235
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/command.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/command.rb', line 234</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parameters'>parameters</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span>
@@ -1746,12 +1769,83 @@ description, and parameter details.</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="complete-instance_method">
+  
+    #<strong>complete</strong>(**kwargs)  &#x21d2; <tt>Array&lt;String&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Completes the argument being typed. The keyword
+arguments are the command&#39;s parameters; the non-nil
+keyword is the active fragment. Subclasses override
+this. Returns candidate completions.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>kwargs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+228
+229
+230</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/command.rb', line 228</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_complete'>complete</span><span class='lparen'>(</span><span class='op'>**</span><span class='id identifier rubyid_kwargs'>kwargs</span><span class='rparen'>)</span>
+  <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:23 2026 by
+  Generated on Sat Aug 22 07:08:33 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

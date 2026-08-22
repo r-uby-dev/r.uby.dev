@@ -212,13 +212,13 @@
   <span class='kw'>case</span> <span class='id identifier rubyid_input'>input</span>
   <span class='kw'>when</span> <span class='const'>Hash</span> <span class='kw'>then</span> <span class='id identifier rubyid_input'>input</span>
   <span class='kw'>when</span> <span class='const'>String</span>
-    <span class='id identifier rubyid_parsed'>parsed</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json'><span class='object_link'><a href="../../LLM.html#json-class_method" title="LLM.json (method)">json</a></span></span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_parsed'>parsed</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json'><span class='object_link'><a href="../../LLM.html#json-instance_method" title="LLM#json (method)">json</a></span></span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
     <span class='const'>Hash</span> <span class='op'>===</span> <span class='id identifier rubyid_parsed'>parsed</span> <span class='op'>?</span> <span class='id identifier rubyid_parsed'>parsed</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='kw'>when</span> <span class='kw'>nil</span> <span class='kw'>then</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_input'>input</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_h</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_input'>input</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span> <span class='op'>:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='kw'>end</span>
-<span class='kw'>rescue</span> <span class='op'>*</span><span class='const'><span class='object_link'><a href="../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json'><span class='object_link'><a href="../../LLM.html#json-class_method" title="LLM.json (method)">json</a></span></span><span class='period'>.</span><span class='id identifier rubyid_parser_error'>parser_error</span>
+<span class='kw'>rescue</span> <span class='op'>*</span><span class='const'><span class='object_link'><a href="../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json'><span class='object_link'><a href="../../LLM.html#json-instance_method" title="LLM#json (method)">json</a></span></span><span class='period'>.</span><span class='id identifier rubyid_parser_error'>parser_error</span>
   <span class='lbrace'>{</span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -231,7 +231,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:16 2026 by
+  Generated on Sat Aug 22 07:08:25 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

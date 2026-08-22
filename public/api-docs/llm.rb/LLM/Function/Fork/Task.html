@@ -441,7 +441,20 @@ and exchanges control and result messages with the child process.</p>
 32
 33
 34
-35</pre>
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 22</span>
@@ -456,7 +469,20 @@ and exchanges control and result messages with the child process.</p>
     <span class='label'>control:</span> <span class='id identifier rubyid_xchan'>xchan</span><span class='lparen'>(</span><span class='symbol'>:marshal</span><span class='rparen'>)</span><span class='comma'>,</span>
     <span class='label'>result:</span> <span class='id identifier rubyid_xchan'>xchan</span><span class='lparen'>(</span><span class='symbol'>:marshal</span><span class='comma'>,</span> <span class='label'>sock:</span> <span class='const'>Socket</span><span class='op'>::</span><span class='const'>SOCK_STREAM</span><span class='rparen'>)</span>
   <span class='rparen'>)</span>
-  <span class='ivar'>@pid</span> <span class='op'>=</span> <span class='const'>Kernel</span><span class='period'>.</span><span class='id identifier rubyid_fork'>fork</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="../Fork.html" title="LLM::Function::Fork (module)">Fork</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Job.html" title="LLM::Function::Fork::Job (class)">Job</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Job.html#initialize-instance_method" title="LLM::Function::Fork::Job#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@function</span><span class='comma'>,</span> <span class='ivar'>@ch</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="Job.html#call-instance_method" title="LLM::Function::Fork::Job#call (method)">call</a></span></span> <span class='rbrace'>}</span>
+  <span class='ivar'>@pid</span> <span class='op'>=</span> <span class='const'>Kernel</span><span class='period'>.</span><span class='id identifier rubyid_fork'>fork</span> <span class='kw'>do</span>
+    <span class='comment'>##
+</span>    <span class='comment'># The child inherits the parent&#39;s terminal. When
+</span>    <span class='comment'># the runtime runs under a curses REPL, the forked
+</span>    <span class='comment'># tool writing to the tty would clobber the parent&#39;s
+</span>    <span class='comment'># display (a blank screen). Redirect the child&#39;s
+</span>    <span class='comment'># stdout/stderr to null so it keeps off the user&#39;s
+</span>    <span class='comment'># terminal. A tool that genuinely needs the terminal
+</span>    <span class='comment'># can reopen it via /dev/tty; the tty fd stays
+</span>    <span class='comment'># available to the child.
+</span>    <span class='gvar'>$stdout</span><span class='period'>.</span><span class='id identifier rubyid_reopen'>reopen</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../File.html" title="LLM::File (class)">File</a></span></span><span class='op'>::</span><span class='const'>NULL</span><span class='rparen'>)</span>
+    <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_reopen'>reopen</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../File.html" title="LLM::File (class)">File</a></span></span><span class='op'>::</span><span class='const'>NULL</span><span class='rparen'>)</span>
+    <span class='const'><span class='object_link'><a href="../Fork.html" title="LLM::Function::Fork (module)">Fork</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Job.html" title="LLM::Function::Fork::Job (class)">Job</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Job.html#initialize-instance_method" title="LLM::Function::Fork::Job#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@function</span><span class='comma'>,</span> <span class='ivar'>@ch</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'><span class='object_link'><a href="Job.html#call-instance_method" title="LLM::Function::Fork::Job#call (method)">call</a></span></span>
+  <span class='kw'>end</span>
   <span class='ivar'>@spawned</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
@@ -502,18 +528,18 @@ and exchanges control and result messages with the child process.</p>
       <pre class="lines">
 
 
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre>
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_alive?'>alive?</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='ivar'>@waited</span> <span class='op'>||</span> <span class='op'>!</span><span class='ivar'>@pid</span>
@@ -570,16 +596,16 @@ and exchanges control and result messages with the child process.</p>
       <pre class="lines">
 
 
-51
-52
-53
-54
-55
-56
-57</pre>
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_interrupt!'>interrupt!</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='ivar'>@waited</span>
@@ -634,23 +660,23 @@ and exchanges control and result messages with the child process.</p>
       <pre class="lines">
 
 
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75</pre>
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wait'>wait</span>
   <span class='kw'>return</span> <span class='ivar'>@guarded</span> <span class='kw'>if</span> <span class='ivar'>@guarded</span>
@@ -708,12 +734,12 @@ and exchanges control and result messages with the child process.</p>
       <pre class="lines">
 
 
-80
-81
-82</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/function/fork/task.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_group_class'>group_class</span>
   <span class='const'><span class='object_link'><a href="../../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Function.html" title="LLM::Function (class)">Function</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Fork.html" title="LLM::Function::Fork (module)">Fork</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Group.html" title="LLM::Function::Fork::Group (class)">Group</a></span></span>
@@ -728,7 +754,7 @@ and exchanges control and result messages with the child process.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:26 2026 by
+  Generated on Sat Aug 22 07:08:38 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

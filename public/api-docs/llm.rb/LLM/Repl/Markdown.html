@@ -321,7 +321,7 @@ that provide a visual representation of the node.</p>
       <pre class="code"><span class="info file"># File 'lib/llm/repl/markdown.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='comma'>,</span> <span class='id identifier rubyid_width'>width</span><span class='rparen'>)</span>
-  <span class='ivar'>@doc</span> <span class='op'>=</span> <span class='const'>Kramdown</span><span class='op'>::</span><span class='const'>Document</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
+  <span class='ivar'>@doc</span> <span class='op'>=</span> <span class='const'>Kramdown</span><span class='op'>::</span><span class='const'>Document</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_fenced_code_blocks'>fenced_code_blocks</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='ivar'>@width</span> <span class='op'>=</span> <span class='id identifier rubyid_width'>width</span>
   <span class='ivar'>@ast</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
@@ -432,7 +432,7 @@ that provide a visual representation of the node.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:24 2026 by
+  Generated on Sat Aug 22 07:08:34 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

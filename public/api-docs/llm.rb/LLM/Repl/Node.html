@@ -222,6 +222,30 @@ of text and optional curses attributes.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#size-instance_method" title="#size (instance method)">#<strong>size</strong>  &#x21d2; Integer </a>
+    
+
+    
+      (also: #length)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#[]-instance_method" title="#[] (instance method)">#<strong>[]</strong>(key)  &#x21d2; String, ... </a>
     
 
@@ -451,7 +475,67 @@ of text and optional curses attributes.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="[]-instance_method">
+  <h3 class="signature first" id="size-instance_method">
+  
+    #<strong>size</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='length-instance_method'>length</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/node.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_size'>size</span>
+  <span class='ivar'>@text</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="[]-instance_method">
   
     #<strong>[]</strong>(key)  &#x21d2; <tt>String</tt>, ... 
   
@@ -507,15 +591,15 @@ of text and optional curses attributes.</p>
       <pre class="lines">
 
 
-30
-31
-32
-33
-34
-35</pre>
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/node.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/node.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_key'>key</span>
@@ -533,7 +617,7 @@ of text and optional curses attributes.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:21 2026 by
+  Generated on Sat Aug 22 07:08:31 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

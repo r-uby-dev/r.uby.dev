@@ -144,14 +144,12 @@ window draws the status line.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(repl)  &#x21d2; LLM::Repl::Status </a>
+      <a href="#nodes-instance_method" title="#nodes (instance method)">#<strong>nodes</strong>  &#x21d2; Array&lt;LLM::Repl::Node&gt; </a>
     
 
     
   </span>
   
-  
-    <span class="note title constructor">constructor</span>
   
   
   
@@ -160,7 +158,8 @@ window draws the status line.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>The nodes making up the status line.</p>
+</div></span>
   
 </li>
 
@@ -205,6 +204,52 @@ window draws the status line.</p>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#model-instance_method" title="#model (instance method)">#<strong>model</strong>  &#x21d2; LLM::Repl::Node </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the current model in use.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cwd-instance_method" title="#cwd (instance method)">#<strong>cwd</strong>  &#x21d2; LLM::Repl::Node </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the current working directory.</p>
+</div></span>
   
 </li>
 
@@ -259,12 +304,14 @@ window draws the status line.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#nodes-instance_method" title="#nodes (instance method)">#<strong>nodes</strong>  &#x21d2; Array&lt;LLM::Repl::Node&gt; </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(repl)  &#x21d2; LLM::Repl::Status </a>
     
 
     
   </span>
   
+  
+    <span class="note title constructor">constructor</span>
   
   
   
@@ -273,8 +320,7 @@ window draws the status line.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>The nodes making up the status line.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -333,12 +379,14 @@ window draws the status line.</p>
 18
 19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_repl'>repl</span><span class='rparen'>)</span>
+  <span class='ivar'>@repl</span> <span class='op'>=</span> <span class='id identifier rubyid_repl'>repl</span>
   <span class='ivar'>@agent</span> <span class='op'>=</span> <span class='id identifier rubyid_repl'>repl</span><span class='period'>.</span><span class='id identifier rubyid_agent'>agent</span>
   <span class='ivar'>@provider</span> <span class='op'>=</span> <span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_llm'>llm</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@nodes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Node.html#initialize-instance_method" title="LLM::Repl::Node#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>idle</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -356,7 +404,72 @@ window draws the status line.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="context_bar-instance_method">
+  <h3 class="signature first" id="nodes-instance_method">
+  
+    #<strong>nodes</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">LLM::Repl::Node</a></span>&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>The nodes making up the status line.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">LLM::Repl::Node</a></span>&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_nodes'>nodes</span>
+  <span class='kw'>if</span> <span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_compacted?'>compacted?</span>
+    <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Node.html#initialize-instance_method" title="LLM::Repl::Node#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Context compacted</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@nodes</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="context_bar-instance_method">
   
     #<strong>context_bar</strong>  &#x21d2; <tt>String</tt> 
   
@@ -396,7 +509,6 @@ window draws the status line.</p>
       <pre class="lines">
 
 
-25
 26
 27
 28
@@ -408,7 +520,7 @@ window draws the status line.</p>
 34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_context_bar'>context_bar</span>
   <span class='const'><span class='object_link'><a href="../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Repl.html" title="LLM::Repl (class)">Repl</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Bar.html" title="LLM::Repl::Bar (class)">Bar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Bar.html#initialize-instance_method" title="LLM::Repl::Bar#initialize (method)">new</a></span></span><span class='lparen'>(</span>
@@ -416,8 +528,7 @@ window draws the status line.</p>
 </span>    <span class='comment'># After compaction the used context is unknown until the next
 </span>    <span class='comment'># response, so the bar renders an unknown state instead of a
 </span>    <span class='comment'># stale percentage.
-</span>    <span class='label'>used:</span> <span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_compacted?'>compacted?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_usage'>usage</span><span class='period'>.</span><span class='id identifier rubyid_total_tokens'>total_tokens</span><span class='comma'>,</span>
-    <span class='label'>total:</span> <span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_context_window'>context_window</span>
+</span>    <span class='label'>fraction:</span> <span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_compacted?'>compacted?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_context_usage'>context_usage</span>
   <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'><span class='object_link'><a href="Bar.html#to_s-instance_method" title="LLM::Repl::Bar#to_s (method)">to_s</a></span></span>
 <span class='kw'>end</span></pre>
     </td>
@@ -474,7 +585,121 @@ window draws the status line.</p>
       <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cost'>cost</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>$</span><span class='embexpr_beg'>#{</span><span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_cost'>cost</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>$</span><span class='embexpr_beg'>#{</span><span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_cost'>cost</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="model-instance_method">
+  
+    #<strong>model</strong>  &#x21d2; <tt><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">LLM::Repl::Node</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns the current model in use.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">LLM::Repl::Node</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_model'>model</span>
+  <span class='const'><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Node.html#initialize-instance_method" title="LLM::Repl::Node#initialize (method)">new</a></span></span> <span class='ivar'>@repl</span><span class='period'>.</span><span class='id identifier rubyid_model'>model</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>A_BOLD</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cwd-instance_method">
+  
+    #<strong>cwd</strong>  &#x21d2; <tt><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">LLM::Repl::Node</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns the current working directory.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">LLM::Repl::Node</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cwd'>cwd</span>
+  <span class='const'><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Node.html#initialize-instance_method" title="LLM::Repl::Node#initialize (method)">new</a></span></span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_home'>home</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>~</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>A_BOLD</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -538,17 +763,17 @@ window draws the status line.</p>
       <pre class="lines">
 
 
-46
-47
-48
-49
-50
-51
-52
-53</pre>
+60
+61
+62
+63
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_text='>text=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@nodes</span> <span class='op'>=</span>
@@ -608,80 +833,15 @@ window draws the status line.</p>
       <pre class="lines">
 
 
-57
-58
-59</pre>
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_text'>text</span>
   <span class='ivar'>@nodes</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:text</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="nodes-instance_method">
-  
-    #<strong>nodes</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">LLM::Repl::Node</a></span>&gt;</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p class="note private">
-  <strong>This method is part of a private API.</strong>
-  You should avoid using this method if possible, as it may be removed or be changed in the future.
-</p>
-<p>The nodes making up the status line.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">LLM::Repl::Node</a></span>&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-68
-69
-70
-71
-72
-73
-74</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/status.rb', line 68</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_nodes'>nodes</span>
-  <span class='kw'>if</span> <span class='ivar'>@agent</span><span class='period'>.</span><span class='id identifier rubyid_compacted?'>compacted?</span>
-    <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Node.html" title="LLM::Repl::Node (class)">Node</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Node.html#initialize-instance_method" title="LLM::Repl::Node#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Context compacted</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbracket'>]</span>
-  <span class='kw'>else</span>
-    <span class='ivar'>@nodes</span>
-  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -693,7 +853,7 @@ window draws the status line.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:22 2026 by
+  Generated on Sat Aug 22 07:08:32 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

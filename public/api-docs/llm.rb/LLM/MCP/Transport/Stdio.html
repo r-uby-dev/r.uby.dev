@@ -444,7 +444,7 @@ lifecycle management to <span class='object_link'><a href="../Command.html" titl
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_alive?'>alive?</span>
-    <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json'><span class='object_link'><a href="../../../LLM.html#json-class_method" title="LLM.json (method)">json</a></span></span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json'><span class='object_link'><a href="../../../LLM.html#json-instance_method" title="LLM#json (method)">json</a></span></span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../MCP.html" title="LLM::MCP (class)">MCP</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../MCP.html#Error-constant" title="LLM::MCP::Error (constant)">Error</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MCP transport is not running</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
@@ -646,7 +646,7 @@ This method is idempotent and can be called multiple times without error.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_nonblock'>read_nonblock</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_alive?'>alive?</span>
-    <span class='const'><span class='object_link'><a href="../../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json'><span class='object_link'><a href="../../../LLM.html#json-class_method" title="LLM.json (method)">json</a></span></span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_read_nonblock'>read_nonblock</span><span class='rparen'>)</span>
+    <span class='const'><span class='object_link'><a href="../../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_json'><span class='object_link'><a href="../../../LLM.html#json-instance_method" title="LLM#json (method)">json</a></span></span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_read_nonblock'>read_nonblock</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="../../../LLM.html" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../MCP.html" title="LLM::MCP (class)">MCP</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../MCP.html#Error-constant" title="LLM::MCP::Error (constant)">Error</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MCP transport is not running</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
@@ -760,7 +760,7 @@ process has exited.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:27 2026 by
+  Generated on Sat Aug 22 07:08:39 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

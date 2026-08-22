@@ -121,7 +121,7 @@ such as Curses::A_BOLD.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#yellow-class_method" title="yellow (class method)">.<strong>yellow</strong>  &#x21d2; Integer </a>
+      <a href="#statusbar-class_method" title="statusbar (class method)">.<strong>statusbar</strong>  &#x21d2; Integer </a>
     
 
     
@@ -297,6 +297,28 @@ such as Curses::A_BOLD.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#yellow-class_method" title="yellow (class method)">.<strong>yellow</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#enable-class_method" title="enable (class method)">.<strong>enable</strong>  </a>
     
 
@@ -311,7 +333,7 @@ such as Curses::A_BOLD.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Enable color and initialize 8 color pairs.</p>
+    <span class="summary_desc"><div class='inline'><p>Enable color and initialize 9 color pairs.</p>
 </div></span>
   
 </li>
@@ -328,9 +350,9 @@ such as Curses::A_BOLD.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="yellow-class_method">
+  <h3 class="signature first" id="statusbar-class_method">
   
-    .<strong>yellow</strong>  &#x21d2; <tt>Integer</tt> 
+    .<strong>statusbar</strong>  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -364,15 +386,15 @@ such as Curses::A_BOLD.</p>
       <pre class="lines">
 
 
-74
-75
-76</pre>
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 81</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_yellow'>yellow</span>
-  <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>8</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_statusbar'>statusbar</span>
+  <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>9</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -416,12 +438,12 @@ such as Curses::A_BOLD.</p>
       <pre class="lines">
 
 
-32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_black'>black</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
@@ -468,12 +490,12 @@ such as Curses::A_BOLD.</p>
       <pre class="lines">
 
 
-38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_blue'>blue</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span>
@@ -520,12 +542,12 @@ such as Curses::A_BOLD.</p>
       <pre class="lines">
 
 
-44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cyan'>cyan</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
@@ -572,12 +594,12 @@ such as Curses::A_BOLD.</p>
       <pre class="lines">
 
 
-50
 51
-52</pre>
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_green'>green</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span>
@@ -624,12 +646,12 @@ such as Curses::A_BOLD.</p>
       <pre class="lines">
 
 
-56
 57
-58</pre>
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_magneta'>magneta</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
@@ -676,12 +698,12 @@ such as Curses::A_BOLD.</p>
       <pre class="lines">
 
 
-62
 63
-64</pre>
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_red'>red</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>6</span><span class='rparen'>)</span>
@@ -728,15 +750,67 @@ such as Curses::A_BOLD.</p>
       <pre class="lines">
 
 
-68
 69
-70</pre>
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_white'>white</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>7</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="yellow-class_method">
+  
+    .<strong>yellow</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_yellow'>yellow</span>
+  <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_color_pair'>color_pair</span><span class='lparen'>(</span><span class='int'>8</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -754,7 +828,7 @@ such as Curses::A_BOLD.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p class="note returns_void">This method returns an undefined value.</p><p>Enable color and initialize 8 color pairs.</p>
+    <p class="note returns_void">This method returns an undefined value.</p><p>Enable color and initialize 9 color pairs.</p>
 
 
   </div>
@@ -783,7 +857,8 @@ such as Curses::A_BOLD.</p>
 25
 26
 27
-28</pre>
+28
+29</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/llm/repl/color.rb', line 13</span>
@@ -803,6 +878,7 @@ such as Curses::A_BOLD.</p>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_init_pair'>init_pair</span><span class='lparen'>(</span><span class='int'>6</span><span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>COLOR_RED</span>     <span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>COLOR_BLACK</span><span class='rparen'>)</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_init_pair'>init_pair</span><span class='lparen'>(</span><span class='int'>7</span><span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>COLOR_WHITE</span>   <span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>COLOR_BLACK</span><span class='rparen'>)</span>
   <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_init_pair'>init_pair</span><span class='lparen'>(</span><span class='int'>8</span><span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>COLOR_YELLOW</span>  <span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>COLOR_BLACK</span><span class='rparen'>)</span>
+  <span class='const'>Curses</span><span class='period'>.</span><span class='id identifier rubyid_init_pair'>init_pair</span><span class='lparen'>(</span><span class='int'>9</span><span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>COLOR_WHITE</span><span class='comma'>,</span> <span class='const'>Curses</span><span class='op'>::</span><span class='const'>COLOR_BLUE</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -814,7 +890,7 @@ such as Curses::A_BOLD.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:15 2026 by
+  Generated on Sat Aug 22 07:08:24 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

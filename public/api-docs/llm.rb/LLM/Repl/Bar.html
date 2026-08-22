@@ -214,7 +214,7 @@ a compact form near the input line.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(used:, total:, width: 10)  &#x21d2; LLM::Repl::Bar </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(fraction:, width: 10)  &#x21d2; LLM::Repl::Bar </a>
     
 
     
@@ -267,7 +267,7 @@ a compact form near the input line.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(used:, total:, width: 10)  &#x21d2; <tt><span class='object_link'><a href="" title="LLM::Repl::Bar (class)">LLM::Repl::Bar</a></span></tt> 
+    #<strong>initialize</strong>(fraction:, width: 10)  &#x21d2; <tt><span class='object_link'><a href="" title="LLM::Repl::Bar (class)">LLM::Repl::Bar</a></span></tt> 
   
 
   
@@ -289,27 +289,17 @@ a compact form near the input line.</p>
   
     <li>
       
-        <span class='name'>used</span>
+        <span class='name'>fraction</span>
       
       
-        <span class='type'>(<tt>Integer</tt>, <tt>nil</tt>)</span>
+        <span class='type'>(<tt>Rational</tt>, <tt>nil</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>The used context, or nil when it is unknown (eg after compaction).</p>
+        <div class='inline'><p>The fraction of the context window used, or nil when unknown
+(eg after compaction).</p>
 </div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>total</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
       
     </li>
   
@@ -343,9 +333,9 @@ a compact form near the input line.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/llm/repl/bar.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>used:</span><span class='comma'>,</span> <span class='label'>total:</span><span class='comma'>,</span> <span class='label'>width:</span> <span class='int'>10</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>fraction:</span><span class='comma'>,</span> <span class='label'>width:</span> <span class='int'>10</span><span class='rparen'>)</span>
   <span class='ivar'>@width</span> <span class='op'>=</span> <span class='id identifier rubyid_width'>width</span>
-  <span class='ivar'>@label</span><span class='comma'>,</span> <span class='ivar'>@filled</span> <span class='op'>=</span> <span class='id identifier rubyid_remainder'>remainder</span><span class='lparen'>(</span><span class='id identifier rubyid_used'>used</span><span class='comma'>,</span> <span class='id identifier rubyid_total'>total</span><span class='rparen'>)</span>
+  <span class='ivar'>@label</span><span class='comma'>,</span> <span class='ivar'>@filled</span> <span class='op'>=</span> <span class='id identifier rubyid_remainder'>remainder</span><span class='lparen'>(</span><span class='id identifier rubyid_fraction'>fraction</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -422,7 +412,7 @@ a compact form near the input line.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:21 2026 by
+  Generated on Sat Aug 22 07:08:31 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>

@@ -155,7 +155,7 @@ also emit lifecycle callbacks like <span class='object_link'><a href="#on_transf
   <span class='kw'>end</span>
 <span class='kw'>end</span>
 
-<span class='id identifier rubyid_llm'>llm</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_deepseek'><span class='object_link'><a href="../LLM.html#deepseek-class_method" title="LLM.deepseek (method)">deepseek</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KEY</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_llm'>llm</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../LLM.html" title="LLM (module)">LLM</a></span></span><span class='period'>.</span><span class='id identifier rubyid_deepseek'><span class='object_link'><a href="../LLM.html#deepseek-instance_method" title="LLM#deepseek (method)">deepseek</a></span></span><span class='lparen'>(</span><span class='label'>key:</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>KEY</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_agent'>agent</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../LLM.html" title="LLM (module)">LLM</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Agent.html" title="LLM::Agent (class)">Agent</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Agent.html#initialize-instance_method" title="LLM::Agent#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_llm'>llm</span><span class='comma'>,</span> <span class='label'>stream:</span> <span class='const'>MyStream</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_agent'>agent</span><span class='period'>.</span><span class='id identifier rubyid_talk'>talk</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Explain Ruby fibers.</span><span class='tstring_end'>&quot;</span></span></code></pre>
     
@@ -381,6 +381,75 @@ also emit lifecycle callbacks like <span class='object_link'><a href="#on_transf
 
   
     <span class="summary_desc"><div class='inline'><p>Called after a context compaction finishes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_rate_limit-instance_method" title="#on_rate_limit (instance method)">#<strong>on_rate_limit</strong>(error)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Called when a request is rate limited and will be retried.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_skill_call-instance_method" title="#on_skill_call (instance method)">#<strong>on_skill_call</strong>(skill)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Called before a skill&#39;s subagent runs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#on_skill_return-instance_method" title="#on_skill_return (instance method)">#<strong>on_skill_return</strong>(agent, skill, result)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Called after a skill&#39;s subagent finishes.</p>
 </div></span>
   
 </li>
@@ -753,21 +822,21 @@ then falls back to the global function registry.</p>
       <pre class="lines">
 
 
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207</pre>
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/llm/stream.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'lib/llm/stream.rb', line 223</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid___find__'>__find__</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_tools'>tools</span> <span class='op'>=</span> <span class='id identifier rubyid_extra'>extra</span><span class='lbracket'>[</span><span class='symbol'>:tools</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_ctx'>ctx</span><span class='op'>&amp;.</span><span class='id identifier rubyid_params'>params</span><span class='op'>&amp;.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='symbol'>:tools</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1638,12 +1707,242 @@ This callback runs when <span class='object_link'><a href="#wait-instance_method
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="on_rate_limit-instance_method">
+  
+    #<strong>on_rate_limit</strong>(error)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Called when a request is rate limited and will be retried.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>error</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../LLM.html#RateLimitError-constant" title="LLM::RateLimitError (constant)">LLM::RateLimitError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+191
+192
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/stream.rb', line 191</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_rate_limit'>on_rate_limit</span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="on_skill_call-instance_method">
+  
+    #<strong>on_skill_call</strong>(skill)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Called before a skill&#39;s subagent runs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>skill</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Skill.html" title="LLM::Skill (class)">LLM::Skill</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199
+200
+201</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/stream.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_skill_call'>on_skill_call</span><span class='lparen'>(</span><span class='id identifier rubyid_skill'>skill</span><span class='rparen'>)</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="on_skill_return-instance_method">
+  
+    #<strong>on_skill_return</strong>(agent, skill, result)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Called after a skill&#39;s subagent finishes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>agent</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Agent.html" title="LLM::Agent (class)">LLM::Agent</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The subagent that ran the skill</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>skill</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Skill.html" title="LLM::Skill (class)">LLM::Skill</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>result</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Response.html" title="LLM::Response (class)">LLM::Response</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/llm/stream.rb', line 210</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_on_skill_return'>on_skill_return</span><span class='lparen'>(</span><span class='id identifier rubyid_agent'>agent</span><span class='comma'>,</span> <span class='id identifier rubyid_skill'>skill</span><span class='comma'>,</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Sun Aug  9 18:50:19 2026 by
+  Generated on Sat Aug 22 07:08:29 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.6).
 </div>
