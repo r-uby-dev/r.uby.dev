@@ -787,7 +787,7 @@ header {
 }
 
 .console-output {
-  height: 180px;
+  height: 260px;
   overflow-y: auto;
   padding: 14px 16px;
   background: #ffffff;
@@ -866,6 +866,12 @@ header {
 @keyframes console-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.6; }
+}
+
+.console-answer {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .console-answer.is-error {
@@ -1007,11 +1013,6 @@ header {
 
 .console-reset-icon {
   display: block;
-}
-
-.home-console:focus-within .console-output,
-.home-console:focus-within .console-form {
-  border-color: var(--accent);
 }
 
 @media (max-width: 640px) {
