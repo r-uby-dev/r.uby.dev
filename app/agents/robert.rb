@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Raven::Agents
-  class Muninn < ActiveRecord::Base
+  class Robert < ActiveRecord::Base
     acts_as_agent(format: :jsonb) do |agent|
-      agent.set name: "r.uby.dev",
+      agent.set name: "robert",
                 description: "a chatbot for the r.uby.dev website",
-                instructions: proc { File.read(File.join(__dir__, "muninn", "prompt.md")) },
+                instructions: proc { File.read(File.join(__dir__, "robert", "prompt.md")) },
                 tools: :tools,
                 concurrency: :async
     end
