@@ -10,34 +10,25 @@ experience building production software in Ruby, C, JavaScript, and
 TypeScript. I have worked on everything from large Rails applications
 to low-level runtimes and systems software.
 
-For the past three years I worked on an open source AI runtime known
-as [r-uby-dev/llm](https://github.com/r-uby-dev/llm#readme) that can
-support advanced AI application development on CRuby. It is modestly
-popular with more than 100,000 downloads on RubyGems and it powers the
-AI infrastructure in at least one company I know of.
+For the past three years I have worked on an advanced agentic AI
+runtime known as llm.rb. I have created a dedicated website that is
+powered by the runtime and I'd love you to check it out: [r.uby.dev](https://r.uby.dev).
 
 ---
 
-## Open Source
+## My work
 
-**[mruby](https://github.com/mruby/mruby/commits?author=0x1eef)**
+**[r.uby.dev](https://r.uby.dev)**
 
-I have contributed multiple commits to mruby, the minimalist version of Ruby
-often used for embedded systems. I frequently use mruby for systems programming,
-and I have ported some of my own software from CRuby to mruby.
+r.uby.dev is my personal website where I keep a portfolio
+of my open source projects and where I have also implemented a chatbot that is
+connected to the official llm.rb repository.
 
-**[pry](https://github.com/pry/pry)**
+**[4.4bsd.dev](https://4.4bsd.dev)**
 
-I was one of the core contributors to the popular Ruby REPL known
-as Pry. I worked closely with its creator, John Mair, and we lived
-in the same city for a while. During that time I made numerous contributions
-that touched on Pry's complex internals.
-
-**[hardenedBSD](https://github.com/hardenedbsd/hardenedbsd)**
-
-hardenedBSD is a fork of FreeBSD that regularly synchronizes with upstream. I'm a member
-of the development team. I worked with others on the team to contribute an implementation
-of OpenBSD's `pledge(2)` for FreeBSD-based systems.
+4.4bsd.dev is connected to a live FreeBSD-based system. It can run commands like
+man(1), apropos(1) and pkg-search(8) to find an answer to a user's question. It
+is built with llm.rb.
 
 ---
 
