@@ -151,9 +151,6 @@
     }
   </style>
 
-  <path class="rule" d="M32 38h496M32 182h496" stroke-width="1" opacity="0.62"/>
-  <path class="rule-strong" d="M90 32h380" stroke-width="2" stroke-linecap="round" opacity="0.72"/>
-
   <g filter="url(#shadow)" opacity="0.92">
     <g class="gem gem-a"><use href="#gemstone" width="78" height="78"/></g>
     <g class="gem gem-b"><use href="#gemstone" width="84" height="84"/></g>
@@ -176,9 +173,6 @@
     <g class="gem gem-c"><use class="gem-front gem-front-c" href="#gemstone" width="78" height="78"/></g>
   </g>
 
-  <path class="accent-shadow" d="M90 176h380" stroke-width="8" stroke-linecap="round"/>
-  <path d="M90 176h380" stroke="url(#accentLine)" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="280" cy="176" r="5" fill="#a7312b"/>
   <text class="tagline" x="280" y="204"
         font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         text-anchor="middle" font-size="18" font-weight="650">Building cool stuff with Ruby</text>
