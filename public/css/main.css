@@ -787,6 +787,7 @@ header {
 }
 
 .console-output {
+  position: relative;
   height: 260px;
   overflow-y: auto;
   padding: 14px 16px;
@@ -872,6 +873,26 @@ header {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 14px;
   line-height: 1.6;
+}
+
+/* Full-area loading spinner, visible from first paint while the greeting
+   template is swapped in. Centered both vertically and horizontally. */
+.console-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.console-loading-icon {
+  display: block;
+  animation: console-loading-spin 2s linear infinite;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+@keyframes console-loading-spin {
+  to { transform: rotate(360deg); }
 }
 
 .console-answer.is-error {

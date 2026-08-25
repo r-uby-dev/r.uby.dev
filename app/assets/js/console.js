@@ -12,6 +12,10 @@ function Console() {
 
   // The default greeting shown on load and after a reset. Cloned from a
   // <template> so the console-answer element itself always starts empty.
+  // The default greeting shown on load and after a reset. Cloned from a
+  // <template> so the console-answer element itself always starts empty.
+  // A CSS-animated loading spinner is embedded in the HTML to show while
+  // this swap is pending on first paint.
   const renderDefaultAnswer = () => {
     const clone = answerTemplate.content.cloneNode(true)
     answer.innerHTML = ""
