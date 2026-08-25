@@ -229,7 +229,7 @@
     }
   </style>
 
-  <g filter="url(#shadow)" opacity="0.92">
+  <g opacity="0.92">
     <g class="gem gem-a"><use href="#gemstone" width="78" height="78"/></g>
     <g class="gem gem-b"><use href="#gemstone-blue" width="84" height="84"/></g>
     <g class="gem gem-c"><use href="#gemstone-green" width="78" height="78"/></g>
@@ -245,7 +245,7 @@
           font-size="72" font-weight="800">r.uby.dev</text>
   </g>
 
-  <g filter="url(#shadow)">
+  <g>
     <g class="gem gem-a"><use class="gem-front gem-front-a" href="#gemstone" width="78" height="78"/></g>
     <g class="gem gem-b"><use class="gem-front gem-front-b" href="#gemstone-blue" width="84" height="84"/></g>
     <g class="gem gem-c"><use class="gem-front gem-front-c" href="#gemstone-green" width="78" height="78"/></g>

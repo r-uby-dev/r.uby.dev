@@ -47,14 +47,22 @@ module Raven::Routes
 
     ##
     # Inlines a file (typically an SVG) from public/images
-    # as raw content, so no extra image request is needed.
-    # Paths are resolved against the public/images dir and
-    # must stay within it.
-    def inline!(name)
+    # as an <object> with a data: URI. The bytes stay in the
+    # HTML (no extra request), but the object renders as its
+    # own document so SVG CSS animations run and the artwork
+    # isn't re-styled by the page.
+    def svg!(name)
       root = File.expand_path("../../public/images/", __dir__)
       path = File.expand_path(File.join(root, name))
       return unless path.start_with?(root + File::SEPARATOR) and File.file?(path)
-      File.read(path)
+      encoded = strict_encode64(File.read(path))
+      %(<object
+         type="image/svg+xml"
+         data="data:image/svg+xml;base64,#{encoded}"
+         aria-hidden="true">
+         </object>)
     end
+
+    include Base64
   end
 end
