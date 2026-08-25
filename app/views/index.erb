@@ -7,50 +7,17 @@
     <div class="console-output" id="console-output" aria-live="polite">
       <div class="console-status" id="console-status"></div>
       <div class="console-answer" id="console-answer">
-        <div class="console-loading" id="console-loading" aria-hidden="true">
-          <svg class="console-loading-icon" viewBox="0 0 256 256" width="40" height="40" role="img" aria-label="Loading">
-            <defs>
-              <linearGradient id="lg-body" x1="45" y1="35" x2="211" y2="224" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#e0796f"/>
-                <stop offset="0.42" stop-color="#a7312b"/>
-                <stop offset="1" stop-color="#5b090d"/>
-              </linearGradient>
-              <linearGradient id="lg-table" x1="75" y1="31" x2="166" y2="104" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#fff3ec"/>
-                <stop offset="0.26" stop-color="#d9867d"/>
-                <stop offset="1" stop-color="#a32d2a"/>
-              </linearGradient>
-              <linearGradient id="lg-right" x1="150" y1="59" x2="219" y2="195" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#911b20"/>
-                <stop offset="1" stop-color="#3c0407"/>
-              </linearGradient>
-              <linearGradient id="lg-center" x1="99" y1="104" x2="146" y2="226" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#c8554f"/>
-                <stop offset="0.48" stop-color="#992522"/>
-                <stop offset="1" stop-color="#6d1315"/>
-              </linearGradient>
-              <radialGradient id="lg-glow" cx="38%" cy="22%" r="66%">
-                <stop offset="0" stop-color="#fff8ed" stop-opacity="0.68"/>
-                <stop offset="0.42" stop-color="#d89a92" stop-opacity="0.18"/>
-                <stop offset="1" stop-color="#d89a92" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <path d="M33 91 78 30h100l45 61-95 134Z" fill="url(#lg-body)" stroke="#250507" stroke-width="7" stroke-linejoin="round"/>
-            <path d="M78 30h100l-50 61Z" fill="url(#lg-table)" stroke="#250507" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M33 91h95l-52 44Z" fill="#b03a33" stroke="#250507" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M223 91h-95l52 44Z" fill="url(#lg-right)" stroke="#250507" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M76 135 128 225 33 91Z" fill="#7a1a1b" stroke="#250507" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M180 135 128 225 223 91Z" fill="#62080d" stroke="#250507" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M76 135h104l-52 90Z" fill="url(#lg-center)" stroke="#250507" stroke-width="4" stroke-linejoin="round"/>
-            <path d="M78 30 128 91 76 135 33 91Z" fill="#a32d29" opacity="0.72"/>
-            <path d="M178 30 128 91 180 135 223 91Z" fill="#6f1416" opacity="0.72"/>
-            <path d="M128 91 76 135h104Z" fill="#c44f47" opacity="0.5"/>
-            <path d="M49 91 84 43h43L86 96Z" fill="url(#lg-glow)"/>
-            <path d="M85 62 101 43h35L93 87Z" fill="#fff6eb" opacity="0.52"/>
-            <path d="M97 153h62" fill="none" stroke="#cf8d85" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
-          </svg>
-        <div class="console-loading-text">Please wait</div>
-        </div>
+        <p>Hey 👋</p>
+        <p>My name is <strong>Robert</strong>.<br>
+        I can help answer questions by searching the <a target="_blank" rel="noopener" href="https://github.com/r-uby-dev/llm#readme">llm.rb</a>
+        GitHub repository.
+        <ul>
+          <li>"What is llm.rb?"</li>
+          <li>"How do I use llm.rb with ActiveRecord?"</li>
+          <li>"How do I use the llm.rb console?"</li>
+          <li>"What's happening on the GitHub repository?"</li>
+        </ul>
+        <p>Ask me anything about llm.rb</p>
       </div>
       <template id="console-answer-template">
         <p>Hey 👋</p>

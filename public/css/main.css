@@ -875,28 +875,7 @@ header {
   line-height: 1.6;
 }
 
-/* Full-area loading spinner, visible from first paint while the greeting
-   template is swapped in. Centered both vertically and horizontally. */
-.console-loading {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
 
-.console-loading-icon {
-  display: block;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
-}
-
-.console-loading-text {
-  color: var(--muted);
-  font-size: 13px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
 
 .console-answer.is-error {
   color: #b42318;
