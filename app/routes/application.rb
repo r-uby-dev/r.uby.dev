@@ -38,9 +38,23 @@ module Raven::Routes
       end
     end
 
+    ##
+    # My resume :)
     def resume!
       response["content-type"] = "text/html"
       view("resume", engine: "md", layout: "resume")
+    end
+
+    ##
+    # Inlines a file (typically an SVG) from public/images
+    # as raw content, so no extra image request is needed.
+    # Paths are resolved against the public/images dir and
+    # must stay within it.
+    def inline!(name)
+      root = File.expand_path("../../public/images/", __dir__)
+      path = File.expand_path(File.join(root, name))
+      return unless path.start_with?(root + File::SEPARATOR) and File.file?(path)
+      File.read(path)
     end
   end
 end
