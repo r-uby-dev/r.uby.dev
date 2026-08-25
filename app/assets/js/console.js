@@ -161,6 +161,7 @@ function Console() {
     answer.innerHTML = ""
     answer.classList.remove("is-error")
     clearStatus()
+    input.focus()
   }
 
   return self
