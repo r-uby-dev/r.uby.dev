@@ -311,15 +311,17 @@ header {
   margin-top: 14px;
 }
 
-/* Resume — professional, self-contained light theme */
+/* Resume — same white canvas as the homepage */
 .resume-body {
   --bg: #ffffff;
-  --fg: #1d2329;
-  --muted: #5f6b7a;
-  --accent: #2851a3;
-  --line: #e4e7eb;
-  --surface: #f7f8fa;
+  --fg: #1f2328;
+  --muted: #59636e;
+  --accent: #0969da;
+  --line: #d0d7de;
+  --surface: #f6f8fa;
   color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .resume-body a {
@@ -327,7 +329,9 @@ header {
 }
 
 .resume-page {
-  width: min(860px, calc(100% - 32px));
+  width: min(726px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 80px;
 }
 
 .resume-header {
@@ -472,6 +476,10 @@ header {
     width: auto;
     margin: 0;
     padding: 0;
+  }
+
+  .home-logo {
+    margin-bottom: 20px;
   }
 
   .resume-header {

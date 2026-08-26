@@ -4,19 +4,26 @@ Hi!
 
 My name is Robert Gleeson.
 
-I'm a software engineer specializing in Ruby, AI infrastructure,
+I am a software engineer specializing in Ruby, AI infrastructure,
 and systems programming. I have more than 10 years of professional
-experience building production software in Ruby, C, JavaScript, and
+experience building production-grade software in Ruby, C, JavaScript, and
 TypeScript. I have worked on everything from large Rails applications
 to low-level runtimes and systems software.
 
-For the past three years I have worked on an advanced agentic AI
-runtime known as llm.rb. I have created a dedicated website that is
-powered by the runtime and I'd love you to check it out: [r.uby.dev](https://r.uby.dev).
+For more than three years I have worked on an advanced agentic AI
+runtime known as llm.rb that is both open source and battle tested in
+production environments. I am a long time open source contributor who
+is a former member of Pry's core team and I have also made smaller
+contributions to mruby.
 
 ---
 
 ## My work
+
+My hobby work combines my passion for Ruby, AI and the BSD-family
+of operating systems. Both websites are powered by [r-uby-dev/llm](https://github.com/r-uby-dev/llm)
+and they provide a simple service to learn about my projects and the
+BSD family of operating systems.
 
 **[r.uby.dev](https://r.uby.dev)**
 
