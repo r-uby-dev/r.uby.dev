@@ -23,8 +23,8 @@ in their source code (and documentation).
 The site is a small Roda application. It uses roda-sse to stream the
 chatbot's responses, ActiveRecord with a single jsonb column for each
 session, and Falcon as the web server. It is designed to be deployed on
-FreeBSD. The Makefile and rc.d script handle the install, and the
-database is configured from config/database.yml.
+FreeBSD. The Makefile and rc.d script handle the install and deploy, and
+the database can be configured from `config/database.yml`.
 
 ## License
 
