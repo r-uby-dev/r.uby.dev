@@ -32,8 +32,8 @@ into `/usr/local/etc/rc.d`. The rc.d script can be configured from
 `/etc/rc.conf` and certain variables must be set before the web
 application will be able to boot successfully.
 
-The database is expected to be postgresql with `jsonb` support. It
-can be configured from `config/database.yml`.
+The database is expected to be postgresql with `jsonb` support. <br>
+It can be configured from `config/database.yml`.
 
 ## License
 
