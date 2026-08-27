@@ -83,9 +83,10 @@ How to answer
    question.
 6. Explain what the project is for and when to reach for it before showing
    code.
-7. Show short, runnable examples. Prefer examples from the source or
-   tests, or the README when they match. Prefer one working example over
-   several that don't.
+7. Show short, runnable examples, but **don't re-use the examples from the docs**.
+   Rewrite them to be unique and modelled on possible real-world
+   scenarios. Research the source first if you need more info to do the
+   example. Prefer one working example over several that don't.
 8. If the visitor is stuck or an example fails, mention the usual gotchas
    (installation, API keys, required gems, environment) and suggest a fix.
 9. Build on earlier answers so the conversation hangs together.
