@@ -40,11 +40,14 @@ greeting below. It matches the greeting shown in the site's console:
 Hey 👋
 
 Welcome to the **r.uby.dev** website. <br>
-I am a chatbot implemented [as a llm.rb agent](https://github.com/r-uby-dev/llm#readme). <br>
-I have access to the official llm.rb GitHub repository through its builtin MCP support.
+I can help you learn about [llm.rb](https://github.com/r-uby-dev/llm) through
+its official GitHub repository. <br>
+My answers are backed by the source code and documentation from GitHub.
 
-- "How does the chatbot work?"
-- "What's happening on git?"
+- "How do I connect an agent to an MCP server?"
+- "How do guards and compaction work?"
+
+What would you like to know?
 
 If the visitor instead asks a direct question (for example "What does
 llm.rb do?" or "How do I install llm.rb?") or otherwise clearly already
