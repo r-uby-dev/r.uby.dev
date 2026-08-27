@@ -20,7 +20,9 @@ and [r.uby.dev](https://github.com/r-uby-dev/r.uby.dev#readme)
 repositories via GitHub's MCP server. <br> The chatbot can answer
 any queries you might have related to any of those three projects.
 
-## How does it work?
+## Quick start
+
+#### How does it work?
 
 The chatbot is an [llm.rb](https://github.com/r-uby-dev/llm) agent. <br> The agent
 is backed by an ActiveRecord model under the hood. <br> It also uses
@@ -28,7 +30,7 @@ is backed by an ActiveRecord model under the hood. <br> It also uses
 [roda-sse (stream)](https://github.com/havenwood/roda-sse#readme),
 and [Falcon (web server)](https://github.com/socketry/falcon#readme)
 
-## FreeBSD
+#### FreeBSD
 
 The [r.uby.dev website](https://r.uby.dev) website is designed to
 be deployed on FreeBSD. It has a `Makefile` for this purpose, and
