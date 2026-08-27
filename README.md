@@ -14,7 +14,7 @@
 
 Welcome to the r.uby.dev website.
 
-r.uby.dev is the home of the r.uby.dev chatbot. It is connected to the
+r.uby.dev is the home of the r.uby.dev chatbot. <br> It is connected to the
 [llm.rb](https://github.com/r-uby-dev/llm#readme),
 [mruby-llm](https://github.com/r-uby-dev/mruby-llm#readme)
 and [r.uby.dev](https://github.com/r-uby-dev/r.uby.dev#readme)
