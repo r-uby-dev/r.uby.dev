@@ -10,37 +10,21 @@
   </a>
 </p>
 
-> [r.uby.dev](https://r.uby.dev) project.
+> A [r.uby.dev](https://r.uby.dev) project.
 
-Welcome to the r.uby.dev website. <br>
-r.uby.dev is the home of the r.uby.dev chatbot. <br> It is connected to the
-[llm.rb](https://github.com/r-uby-dev/llm#readme),
-[mruby-llm](https://github.com/r-uby-dev/mruby-llm#readme)
-and [r.uby.dev](https://github.com/r-uby-dev/r.uby.dev#readme)
-repositories via GitHub's MCP server. <br> The chatbot can answer
-any queries you might have related to any of those three projects.
+Welcome to the r.uby.dev website.
 
-## Quick start
+r.uby.dev is the home of the r.uby.dev chatbot. The chatbot is an
+[llm.rb](https://github.com/r-uby-dev/llm#readme) agent that is
+connected to the llm.rb, mruby-llm and r.uby.dev GitHub repositories.
+It answers questions about those projects, and its answers are grounded
+in their source code (and documentation).
 
-#### How does it work?
-
-The chatbot is an [llm.rb](https://github.com/r-uby-dev/llm) agent. <br> The agent
-is backed by an ActiveRecord model under the hood. <br> It also uses
-[Roda (web toolkit)](https://github.com/jeremyevans/roda#readme),
-[roda-sse (stream)](https://github.com/havenwood/roda-sse#readme),
-and [Falcon (web server)](https://github.com/socketry/falcon#readme)
-
-#### FreeBSD
-
-The [r.uby.dev website](https://r.uby.dev) website is designed to
-be deployed on FreeBSD. It has a `Makefile` for this purpose, and
-it also has an rc.d script that the `make install` target copies
-into `/usr/local/etc/rc.d`. The rc.d script can be configured from
-`/etc/rc.conf` and certain variables must be set before the web
-application will be able to boot successfully.
-
-The database is expected to be postgresql with `jsonb` support. <br>
-It can be configured from `config/database.yml`.
+The site is a small Roda application. It uses roda-sse to stream the
+chatbot's responses, ActiveRecord with a single jsonb column for each
+session, and Falcon as the web server. It is designed to be deployed on
+FreeBSD. The Makefile and rc.d script handle the install, and the
+database is configured from config/database.yml.
 
 ## License
 
