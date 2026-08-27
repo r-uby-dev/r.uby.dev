@@ -12,13 +12,13 @@
 
 > [r.uby.dev](https://r.uby.dev) project.
 
-Welcome to the r.uby.dev website.
-
+Welcome to the r.uby.dev website. <br>
 r.uby.dev is the home of the r.uby.dev chatbot. <br> It is connected to the
 [llm.rb](https://github.com/r-uby-dev/llm#readme),
 [mruby-llm](https://github.com/r-uby-dev/mruby-llm#readme)
 and [r.uby.dev](https://github.com/r-uby-dev/r.uby.dev#readme)
-repositories via GitHub's MCP server.
+repositories via GitHub's MCP server. The chatbot can answer
+any queries you might have related to any of those three projects.
 
 ## How does it work?
 
