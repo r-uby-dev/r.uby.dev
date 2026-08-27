@@ -23,7 +23,7 @@ repositories via GitHub's MCP server.
 ## How does it work?
 
 The chatbot is an [llm.rb](https://github.com/r-uby-dev/llm) agent. <br> The agent
-is backed by an ActiveRecord model under the hood. It also uses
+is backed by an ActiveRecord model under the hood. <br> It also uses
 [Roda (web toolkit)](https://github.com/jeremyevans/roda#readme),
 [roda-sse (stream)](https://github.com/havenwood/roda-sse#readme),
 and [Falcon (web server)](https://github.com/socketry/falcon#readme)
