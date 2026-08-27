@@ -26,7 +26,3 @@ session, and Falcon as the web server. It is designed to be deployed on
 FreeBSD. The Makefile and rc.d script handle the install and deploy, and
 the database can be configured from `config/database.yml`.
 
-## License
-
-This software is released under the terms of the MIT license. <br>
-See [LICENSE](./LICENSE) for details.
