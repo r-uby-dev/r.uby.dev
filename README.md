@@ -10,7 +10,7 @@
   </a>
 </p>
 
-> A [r.uby.dev](https://r.uby.dev) project.
+> [r.uby.dev](https://r.uby.dev) project.
 
 Welcome to the r.uby.dev website.
 
