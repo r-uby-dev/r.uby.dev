@@ -10,20 +10,25 @@
   </a>
 </p>
 
-> A [r.uby.dev](https://r.uby.dev) project.
+> [r.uby.dev](https://r.uby.dev) project.
 
 Welcome to the r.uby.dev website.
 
-r.uby.dev is the home of the r.uby.dev chatbot. <br> It is connected to the
+r.uby.dev is the home of the r.uby.dev chatbot. It is connected to the
 [llm.rb](https://github.com/r-uby-dev/llm#readme),
 [mruby-llm](https://github.com/r-uby-dev/mruby-llm#readme)
 and [r.uby.dev](https://github.com/r-uby-dev/r.uby.dev#readme)
-repositories (via MCP). The chatbot is an [llm.rb](https://github.com/r-uby-dev/llm) agent. The agent
-is backed by an ActiveRecord model that uses [`acts_as_agent`](https://r.uby.dev/api-docs/llm.rb/LLM/ActiveRecord/ActsAsAgent.html#acts_as_agent-instance_method)
-under the hood. It also uses
+repositories via GitHub's MCP server.
+
+## How does it work?
+
+The chatbot is an [llm.rb](https://github.com/r-uby-dev/llm) agent. The agent
+is backed by an ActiveRecord model under the hood. It also uses
 [Roda (web toolkit)](https://github.com/jeremyevans/roda#readme),
 [roda-sse (stream)](https://github.com/havenwood/roda-sse#readme),
 and [Falcon (web server)](https://github.com/socketry/falcon#readme)
+
+## FreeBSD
 
 The [r.uby.dev website](https://r.uby.dev) website is designed to
 be deployed on FreeBSD. It has a `Makefile` for this purpose, and
