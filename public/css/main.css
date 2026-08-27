@@ -728,6 +728,21 @@ header {
   text-decoration: underline;
 }
 
+.home-contact code {
+  padding: 0.12em 0.32em;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+.home-contact a code {
+  color: var(--accent);
+}
+
 .home-console {
   margin-top: 40px;
   border-bottom: 0;
