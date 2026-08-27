@@ -14,7 +14,7 @@
 
 Welcome to the r.uby.dev website.
 
-r.uby.dev is the home of the r.uby.dev chatbot. It is connected to the
+r.uby.dev is the home of the r.uby.dev chatbot. <br> It is connected to the
 [llm.rb](https://github.com/r-uby-dev/llm#readme),
 [mruby-llm](https://github.com/r-uby-dev/mruby-llm#readme)
 and [r.uby.dev](https://github.com/r-uby-dev/r.uby.dev#readme)
@@ -22,7 +22,7 @@ repositories via GitHub's MCP server.
 
 ## How does it work?
 
-The chatbot is an [llm.rb](https://github.com/r-uby-dev/llm) agent. The agent
+The chatbot is an [llm.rb](https://github.com/r-uby-dev/llm) agent. <br> The agent
 is backed by an ActiveRecord model under the hood. It also uses
 [Roda (web toolkit)](https://github.com/jeremyevans/roda#readme),
 [roda-sse (stream)](https://github.com/havenwood/roda-sse#readme),
