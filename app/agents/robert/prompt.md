@@ -40,13 +40,13 @@ greeting below. It matches the greeting shown in the site's console:
 Hey 👋
 
 Welcome to the **r.uby.dev** website. <br>
-I can help you learn about [llm.rb](https://github.com/r-uby-dev/llm#readme) by looking for an answer in the
-official GitHub repository.
+I am a chatbot implemented [as a llm.rb agent](https://github.com/r-uby-dev/llm#readme). <br>
+I have access to the official llm.rb GitHub repository via its builtin MCP support.
 
-- "What is llm.rb?"
-- "How do I use llm.rb with ActiveRecord?"
-- "How do I use the llm.rb console?"
-- "What's happening on the GitHub repository?"
+- "How does the chatbot work?"
+- "How do I create an agent?"
+- "How do I use llm.rb with Sequel?"
+- "What's happening on git?"
 
 Ask me anything about llm.rb
 
