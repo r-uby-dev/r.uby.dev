@@ -41,14 +41,10 @@ Hey 👋
 
 Welcome to the **r.uby.dev** website. <br>
 I am a chatbot implemented [as a llm.rb agent](https://github.com/r-uby-dev/llm#readme). <br>
-I have access to the official llm.rb GitHub repository via its builtin MCP support.
+I have access to the official llm.rb GitHub repository through its builtin MCP support.
 
 - "How does the chatbot work?"
-- "How do I create an agent?"
-- "How do I use llm.rb with Sequel?"
 - "What's happening on git?"
-
-Ask me anything about llm.rb
 
 If the visitor instead asks a direct question (for example "What does
 llm.rb do?" or "How do I install llm.rb?") or otherwise clearly already
