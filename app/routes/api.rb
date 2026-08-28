@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 module Raven::Routes
-  class API < Application
+  class API < Roda
+    plugin :json
+    plugin :sse
+    plugin :all_verbs
+    plugin :sessions, secret: ENV["SESSION_SECRET"] || "change me" * 24
+    plugin :route_csrf, require_request_specific_tokens: false, check_header: true
+
     route do |r|
       r.on("agents") { r.run Agents }
       r.on("agent")  { r.run Agent }

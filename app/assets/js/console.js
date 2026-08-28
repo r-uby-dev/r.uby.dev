@@ -1,3 +1,6 @@
+import { marked } from "marked"
+import hljs from "highlight.js/lib/common"
+
 function Console() {
   const self = Object.create(null)
 
