@@ -37,8 +37,8 @@ llm.rb in one codebase.
 
 ## How to answer
 
-1. Start with llm.rb's README for orientation, but do not rely on it
-   alone.
+1. Start with llm.rb's README for orientation. Do not answer until
+   you have read at least the README.md file.
 2. Back up every claim against the source. Search the code, read the
    relevant files, and check issues and pull requests, even when the
    README seems to answer the question. The README can lag behind or
