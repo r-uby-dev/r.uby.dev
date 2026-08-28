@@ -21,21 +21,23 @@ contributions to mruby.
 ## My work
 
 My hobby work combines my passion for Ruby, AI and the BSD-family
-of operating systems. Both websites are powered by [r-uby-dev/llm](https://github.com/r-uby-dev/llm)
-and they provide a simple service to learn about my projects and the
-BSD family of operating systems.
+of operating systems. Both websites are powered by [r-uby-dev/llm](https://github.com/r-uby-dev/llm).
+They provide a free service that can be used to learn about my projects
+and the BSD family of operating systems with the help of AI technology.
 
 **[r.uby.dev](https://r.uby.dev)**
 
 r.uby.dev is my personal website where I keep a portfolio
-of my open source projects and where I have also implemented a chatbot that is
-connected to the official llm.rb repository.
+of my open source projects and where I have also implemented a chatbot
+that is connected to the GitHub repositories for the [r.uby.dev](https://r.uby.dev)
+family of projects.
 
 **[4.4bsd.dev](https://4.4bsd.dev)**
 
-4.4bsd.dev is connected to a live FreeBSD-based system. It can run commands like
-man(1), apropos(1) and pkg-search(8) to find an answer to a user's question. It
-is built with llm.rb.
+4.4bsd.dev provides a chatbot that is connected to a FreeBSD-based system.
+It can run commands like man(1), apropos(1) and pkg-search(8) to find an
+answer to a user's question. I also maintain a portfolio of BSD-related
+software I have written on [4.4bsd.dev](https://4.4bsd.dev).
 
 ---
 
