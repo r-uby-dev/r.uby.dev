@@ -24,12 +24,12 @@ SYSRC ?= sysrc
 # The rc.conf key that holds the PostgreSQL password for the app role.
 DB_PASSWORD_KEYS ?= rubydev_db_password
 
-APP_FILES = Rakefile config.ru falcon.rb Gemfile Gemfile.lock LICENSE README.md
+APP_FILES = Rakefile config.ru falcon.rb Gemfile Gemfile.lock LICENSE README.md .version
 APP_DIRS = .bundle bin app config db libexec public
 
 RACK_ENV ?= production
 
-.PHONY: install deinstall bundle check-bundle deploy assets
+.PHONY: install deinstall bundle check-bundle deploy assets version
 
 install: check-bundle
 	$(MKDIR) "$(DESTDIR)$(APPDIR)"
@@ -72,6 +72,12 @@ deploy: install
 check-bundle:
 	@test -f .bundle/config || (echo "Run 'make bundle' as an unprivileged user before 'make install'." >&2; exit 1)
 	@test -d .bundle/gems || (echo "Run 'make bundle' as an unprivileged user before 'make install'." >&2; exit 1)
+
+# Write the current HEAD commit into .version. Runs automatically before
+# every commit (see .git/hooks/pre-commit) so .version always tracks HEAD.
+version:
+	@git rev-parse HEAD > .version
+	@echo "wrote .version: $$(cat .version)"
 
 deinstall:
 	$(RM) "$(DESTDIR)$(RCDIR)/rubydev"
