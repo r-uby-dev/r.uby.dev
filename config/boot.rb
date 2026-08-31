@@ -7,6 +7,7 @@ module Raven
   require "roda/plugins/sse"
   require "llm"
   require "llm/active_record"
+  require "paranoia"
   require "json"
   require "erb"
   require "yaml"

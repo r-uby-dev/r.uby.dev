@@ -2,6 +2,7 @@
 
 module Raven::Agents
   class Robert < ActiveRecord::Base
+    acts_as_paranoid
     acts_as_agent(format: :jsonb) do |agent|
       agent.set name: "robert",
                 description: "a chatbot for the r.uby.dev website",

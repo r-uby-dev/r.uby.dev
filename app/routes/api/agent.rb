@@ -13,7 +13,6 @@ class Raven::Routes::API
         rescue ActiveRecord::RecordNotFound
           stream.error(message: "agent unavailable")
         rescue => e
-          warn "sse error: #{e.class}: #{e.message}"
           stream.error(message: "internal server error (#{e.class})")
         end
       end
