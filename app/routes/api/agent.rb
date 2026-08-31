@@ -17,6 +17,8 @@ class Raven::Routes::API
       end
     end
 
+    private
+
     ##
     # @return [String, nil]
     def agent_id
