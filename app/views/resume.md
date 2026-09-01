@@ -31,7 +31,8 @@ and POSIX shell.
 
 **[4.4bsd.dev](https://4.4bsd.dev)**
 
-4.4bsd.dev provides a chatbot that is connected to a FreeBSD-based system.
+4.4bsd.dev provides a chatbot that runs on FreeBSD 15.1-STABLE. It is
+designed to help a user learn and troubleshoot FreeBSD.
 It can run commands like man(1), apropos(1) and pkg-search(8) to find an
 answer to a user's question. I also maintain a portfolio of BSD-related
 software I have written on 4.4bsd.dev.
