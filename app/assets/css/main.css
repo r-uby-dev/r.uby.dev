@@ -181,7 +181,6 @@ header {
   grid-template-columns: minmax(0, 1fr) 120px;
   gap: 24px;
   align-items: start;
-  border-bottom: 1px solid var(--line);
   padding-bottom: 24px;
 }
 
@@ -333,7 +332,6 @@ header {
 .resume-page {
   width: min(726px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 40px 0 80px;
 }
 
 .resume-header {
@@ -341,7 +339,6 @@ header {
   grid-template-columns: minmax(0, 1fr) max-content;
   gap: 28px;
   align-items: start;
-  border-bottom: 1px solid var(--line);
   padding: 36px 0 22px;
 }
 
@@ -391,7 +388,6 @@ header {
 /* Section labels: uppercase with a small accent tick */
 .resume-content h2 {
   margin: 0 0 18px;
-  border-top: 1px solid var(--line);
   padding: 30px 0 0;
   display: flex;
   align-items: center;
