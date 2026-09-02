@@ -79,7 +79,6 @@ application (also Rails) that joined the two.
 - Worked on time tracking, payroll reporting, billing, and team management in the monolith.
 - Worked on Hubstaff Tasks, the project management tool.
 - Maintained the OAuth SSO application shared by all three applications.
-- Audited the OAuth SSO application for security issues.
 
 ### Private Internet Access
 
