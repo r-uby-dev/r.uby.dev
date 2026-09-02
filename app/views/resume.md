@@ -31,18 +31,15 @@ and POSIX shell.
 
 **[4.4bsd.dev](https://4.4bsd.dev)**
 
-4.4bsd.dev provides a chatbot that runs on FreeBSD 15.1-STABLE. It is
-designed to help a user learn and troubleshoot FreeBSD.
-It can run commands like man(1), apropos(1) and pkg-search(8) to find an
-answer to a user's question. I also maintain a portfolio of BSD-related
-software I have written on 4.4bsd.dev.
+4.4bsd.dev provides a free service that is designed to help users learn
+and troubleshoot FreeBSD. It can run commands like man(1), apropos(1)
+and pkg-search(8) to find an answer to a user's question.
 
 **[r.uby.dev](https://r.uby.dev)**
 
-r.uby.dev is my personal website where I keep a portfolio
-of my open source projects and where I have also implemented a chatbot
-that is connected to the GitHub repositories for the r.uby.dev
-family of projects.
+r.uby.dev provides a free service that is designed to help users learn
+and trouble the llm.rb runtime that I authored. I created this website
+so that new llm.rb users could learn how to use it quickly.
 
 ---
 
