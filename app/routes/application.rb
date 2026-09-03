@@ -2,17 +2,21 @@
 
 module Raven::Routes
   class Application < Roda
+    include Raven::Agents
+
     plugin :render,
-      views: File.join(__dir__, "..", "views"),
+      views: File.join(Raven.root, "app", "views"),
       cache: false,
       check_template_mtime: true
-    plugin :public, root: File.expand_path("../../public", __dir__)
+    plugin :public, root: File.join(Raven.root, "public")
     plugin :sessions, secret: ENV["SESSION_SECRET"] || "change me" * 24
     plugin :route_csrf, require_request_specific_tokens: false, check_header: true
     plugin :all_verbs
+    plugin :agent, agents: [{class: Robert, stream: Robert::Stream, scope: :session}]
 
     route do |r|
       r.public
+      r.agent!
 
       r.root do
         view("index")
@@ -23,14 +27,10 @@ module Raven::Routes
         r.root { resume! }
         r.get("index.html") { resume! }
       end
-
-      r.on "api" do
-        r.run Raven::Routes::API
-      end
     end
 
     ##
-    # My resume :)
+    # My resume
     def resume!
       response["content-type"] = "text/html"
       view("resume", engine: "md", layout: "resume")
