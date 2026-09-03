@@ -12,7 +12,7 @@ module Raven::Routes
     plugin :sessions, secret: ENV["SESSION_SECRET"] || "change me" * 24
     plugin :route_csrf, require_request_specific_tokens: false, check_header: true
     plugin :all_verbs
-    plugin :agent, agents: [{class: Robert, scope: :session}]
+    plugin :agent, agents: [{class: Robert, scope: Raven::Scopes::Session}]
 
     route do |r|
       r.public
