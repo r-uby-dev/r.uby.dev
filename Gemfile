@@ -19,9 +19,15 @@ gem "kramdown-parser-gfm"
 gem "redcarpet"
 gem "rouge"
 gem "tilt"
-gem "llm.rb"
-gem "xchan.rb"
-gem "async"
-gem "net-http-persistent"
+
+##
+# ActiveRecord
 gem "paranoia"
+
+##
+# LLM gems
+gem "llm.rb", github: "r-uby-dev/llm"
 gem "roda-llm", github: "r-uby-dev/roda-llm"
+gem "net-http-persistent"
+gem "async"
+gem "xchan.rb"
