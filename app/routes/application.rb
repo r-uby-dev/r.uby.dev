@@ -70,5 +70,19 @@ module Raven::Routes
       %(<script>#{File.read(path)}</script>)
     end
     include Base64
+
+    ##
+    # r.uby.dev project
+    # @return [String]
+    def rubydev!(name:)
+      anchor!(name:, href: "https://github.com/r-uby-dev/#{name}#readme")
+    end
+
+    ##
+    # External anchor (<a> tag)
+    # @return [String]
+    def anchor!(name:, href:)
+      "<a href='#{href}' target='_blank' rel='noopener'>#{name}</a>"
+    end
   end
 end

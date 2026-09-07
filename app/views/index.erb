@@ -55,8 +55,12 @@
       llm.rb has been
       in active development for more than three years. It has also been ported to mruby so
       you can distribute lightweight, AI-powered binaries that can target both embedded and
-      non-embedded systems. The <a href="https://github.com/r-uby-dev/roda-llm">roda-llm</a>
-      project can serve HTTP endpoints for a fleet of llm.rb agents and it powers this website.
+      non-embedded systems.
+    </p>
+    <p style="margin-bottom: 15px;">
+      It also has sibling projects that use or power the runtime that includes <%= rubydev!(name: "roda-llm") %>,
+      <%= rubydev!(name: "xchan.rb") %> and <%= rubydev!(name: "test-cmd.rb") %>. The <%= rubydev!(name: "roda-llm") %>
+      project can host a fleet of llm.rb agents over a HTTP interface that can serve multiple agents.
     </p>
 
     <div class="project-grid">
@@ -87,6 +91,12 @@
       <a class="project-card" href="https://github.com/r-uby-dev/xchan.rb#readme" target="_blank" rel="noopener">
         <h3 class="project-name">xchan.rb</h3>
         <p class="project-tagline">xchan.rb is easy-to-use InterProcess Communication (IPC) library.</p>
+        <p class="project-meta"><span class="lang-dot lang-ruby"></span> ruby<span class="project-license">MIT</span></p>
+      </a>
+
+      <a class="project-card" href="https://github.com/r-uby-dev/test-cmd.rb#readme" target="_blank" rel="noopener">
+        <h3 class="project-name">test-cmd.rb</h3>
+        <p class="project-tagline">test-cmd.rb provides Go-inspired command execution for Ruby.</p>
         <p class="project-meta"><span class="lang-dot lang-ruby"></span> ruby<span class="project-license">MIT</span></p>
       </a>
     </div>
