@@ -12,7 +12,7 @@ module Raven
   require "erb"
   require "yaml"
   require "base64"
-  require "test/cmd"
+  require "test-cmd"
 
   Routes = Module.new
   Agents = Module.new
