@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/r-uby-dev/llm.git
-  revision: 263d6396c112edb3708f12d718d76028f5e9106c
+  revision: 326468c3fba6d4dd69d99d8bd7120f58ed73a4fc
   specs:
     llm.rb (15.1.0)
 
@@ -228,7 +228,7 @@ GEM
     string-format (0.2.0)
     stringio (3.2.0)
     strscan (3.1.8)
-    test-cmd.rb (0.12.4)
+    test-cmd.rb (2.6.0)
     tilt (2.7.0)
     timeout (0.6.1)
     tsort (0.2.0)
@@ -380,7 +380,7 @@ CHECKSUMS
   string-format (0.2.0) sha256=bc981c14116b061f12134549f32fa2d61a17b5a35dd6fd36596c21722a789af6
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
   strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e
-  test-cmd.rb (0.12.4) sha256=67a76c4bf3a05893734f4d320337f671285a1d1383759dd7973decaeb3c0baef
+  test-cmd.rb (2.6.0) sha256=ccbcf8cb3b8d4b39d8786d2c91a9f89db019f35a91b08b97afdf1c53d0a2ad59
   tilt (2.7.0) sha256=0d5b9ba69f6a36490c64b0eee9f6e9aad517e20dcc848800a06eb116f08c6ab3
   timeout (0.6.1) sha256=78f57368a7e7bbadec56971f78a3f5ecbcfb59b7fcbb0a3ed6ddc08a5094accb
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
