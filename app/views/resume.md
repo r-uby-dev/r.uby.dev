@@ -3,8 +3,8 @@
 My name is Robert Gleeson.
 
 I am a software engineer specializing in Ruby, AI infrastructure,
-and systems programming. I have 15 years of professional
-experience building production-grade software in Ruby, JavaScript,
+and software design. I have 15 years of professional experience
+building production-grade software in Ruby, JavaScript,
 TypeScript, and C. I have worked across the stack: from large Rails
 monoliths to Ruby microservices to privacy-focused browser
 extensions with more than 100,000 users.
@@ -29,17 +29,12 @@ and POSIX shell.
 
 ## Websites
 
-**[4.4bsd.dev](https://4.4bsd.dev)**
-
-4.4bsd.dev provides a free service that is designed to help users learn
-and troubleshoot FreeBSD. It can run commands like man(1), apropos(1)
-and pkg-search(8) to find an answer to a user's question.
-
 **[r.uby.dev](https://r.uby.dev)**
 
 r.uby.dev provides a free service that is designed to help users learn
-and trouble the llm.rb runtime that I authored. I created this website
-so that new llm.rb users could learn how to use it quickly.
+and troubleshoot the llm.rb runtime. I created this website so that new
+llm.rb users could learn how to use it quickly and effectively. It also
+features other software I'm working on and actively maintain.
 
 ---
 
