@@ -3,7 +3,7 @@
 Hello. My name is Robert Gleeson.
 
 I am a software engineer specializing in Ruby, AI infrastructure,
-and software design. I have 15 years of professional experience
+and system design. I have 15 years of professional experience
 building production-grade software in Ruby, JavaScript,
 TypeScript, and C. I have worked across the stack: from large Rails
 monoliths to Ruby microservices to privacy-focused browser
