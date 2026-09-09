@@ -30,11 +30,12 @@
   <section class="home-contact">
     <h2 class="home-section-title">About</h2>
     <p>
-      r.uby.dev is the home of the AI runtimes known as
+      r.uby.dev is the home of the agentic AI Ruby projects known as
       <a target="_blank" href="https://github.com/r-uby-dev/llm#readme">llm.rb</a> and
-      <a target="_blank" href="https://github.com/r-uby-dev/mruby-llm#readme">mruby-llm</a>.
+      <a target="_blank" href="https://github.com/r-uby-dev/roda-llm#readme">roda-llm</a>.
       <br>
-      This website provides a free service that helps you learn and troubleshoot both runtimes.
+      This website provides a free service that helps you learn and troubleshoot all software
+      projects in the r.uby.dev family.
     </p>
   </section>
 
@@ -42,9 +43,8 @@
     <h2 class="home-section-title">Screencast</h2>
     <p>
       llm.rb includes a builtin console that can be started via the
-      <code>llm.rb</code> executable or at runtime via <code>agent.repl</code>.
-      The console is my main daily driver and provides a constant feedback loop
-      that has improved the runtime's quality and reliability.
+      <code>llm.rb</code> executable or at runtime via <code>agent.console</code>.
+      The console requires optional, opt-in dependencies to be installed separately.
     </p>
 <script src="https://asciinema.org/a/Ycf3UYfIUn0qGF1R.js" id="asciicast-Ycf3UYfIUn0qGF1R" async="true"></script>
   </section>
@@ -53,14 +53,15 @@
     <h2 class="home-section-title">Projects</h2>
     <p>
       llm.rb has been
-      in active development for more than three years. It has also been ported to mruby so
+      in active development for three plus years. About a year ago I started to port it to mruby so
       you can distribute lightweight, AI-powered binaries that can target both embedded and
-      non-embedded systems.
+      non-embedded systems. Lately I'm mostly focused on CRuby, though.
     </p>
     <p style="margin-bottom: 15px;">
       It also has sibling projects that use or power the runtime that includes <%= rubydev!(name: "roda-llm") %>,
       <%= rubydev!(name: "xchan.rb") %> and <%= rubydev!(name: "test-cmd.rb") %>. The <%= rubydev!(name: "roda-llm") %>
-      project can host a fleet of llm.rb agents over a HTTP interface that can serve multiple agents.
+      project provides a framework for deploying multiple llm.rb agents via a Roda application that you can mount in
+      Rack, Roda, and Rails apps.
     </p>
 
     <div class="project-grid">
@@ -70,15 +71,9 @@
         <p class="project-meta"><span class="lang-dot lang-ruby"></span> ruby<span class="project-license">MIT</span></p>
       </a>
 
-      <a class="project-card" href="https://github.com/r-uby-dev/mruby-llm#readme" target="_blank" rel="noopener">
-        <h3 class="project-name">mruby-llm</h3>
-        <p class="project-tagline">mruby-llm is an advanced runtime for building agentic AI applications on mruby.</p>
-        <p class="project-meta"><span class="lang-dot lang-mruby"></span> mruby<span class="project-license">MIT</span></p>
-      </a>
-
       <a class="project-card" href="https://github.com/r-uby-dev/roda-llm#readme" target="_blank" rel="noopener">
         <h3 class="project-name">roda-llm</h3>
-        <p class="project-tagline">roda-llm is a Roda plugin that can serve a fleet of llm.rb agents.</p>
+        <p class="project-tagline">roda-llm provides a framework for deploying multiple llm.rb agents.</p>
         <p class="project-meta"><span class="lang-dot lang-ruby"></span> ruby<span class="project-license">MIT</span></p>
       </a>
 
@@ -88,6 +83,12 @@
         <p class="project-meta"><span class="lang-dot lang-ruby"></span> ruby<span class="project-license">MIT</span></p>
       </a>
 
+      <a class="project-card" href="https://github.com/r-uby-dev/mruby-llm#readme" target="_blank" rel="noopener">
+        <h3 class="project-name">mruby-llm</h3>
+        <p class="project-tagline">mruby-llm is an advanced runtime for building agentic AI applications on mruby.</p>
+        <p class="project-meta"><span class="lang-dot lang-mruby"></span> mruby<span class="project-license">MIT</span></p>
+      </a>
+      
       <a class="project-card" href="https://github.com/r-uby-dev/xchan.rb#readme" target="_blank" rel="noopener">
         <h3 class="project-name">xchan.rb</h3>
         <p class="project-tagline">xchan.rb is easy-to-use InterProcess Communication (IPC) library.</p>
