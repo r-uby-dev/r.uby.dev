@@ -1,6 +1,6 @@
 ## Introduction
 
-My name is Robert Gleeson.
+Hello. My name is Robert Gleeson.
 
 I am a software engineer specializing in Ruby, AI infrastructure,
 and software design. I have 15 years of professional experience
