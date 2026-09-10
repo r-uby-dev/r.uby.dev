@@ -1,29 +1,25 @@
 ## Introduction
 
-Hello. My name is Robert Gleeson.
+My name is Robert Gleeson. I am originally from Ireland but
+I have lived in Brazil for the past five years. I speak fluent
+English and a little bit of Portuguese.
 
-I am a software engineer specializing in Ruby, AI infrastructure,
-and system design. I have 15 years of professional experience
-building production-grade software in Ruby, JavaScript,
-TypeScript, and C. I have worked across the stack: from large Rails
-monoliths to Ruby microservices to privacy-focused browser
-extensions with more than 100,000 users.
+I have 15 years of professional experience building software
+in Ruby, JavaScript, and other web technologies. I have worked
+across the stack: from large Rails monoliths to Ruby microservices
+to privacy-focused browser extensions with more than 100,000
+users.
 
 ---
 
 ## Open source
 
-For three years I have worked on an advanced agentic AI
+For three plus years I have worked on an advanced agentic AI
 runtime known as <a href="https://github.com/r-uby-dev/llm#readme">llm.rb</a>
 that is both open source and battle tested in production environments.
 I am a long time open source contributor who is a former member of Pry's
 core team and I have also made smaller contributions to mruby and other
 projects in the Ruby ecosystem.
-
-My open source contributions span 15 years and my most recent
-contributions include commits to a fork of FreeBSD known as HardenedBSD
-where I have been able to exercise my skills in languages such as C, Go
-and POSIX shell.
 
 ---
 
@@ -31,10 +27,10 @@ and POSIX shell.
 
 **[r.uby.dev](https://r.uby.dev)**
 
-r.uby.dev provides a free service that is designed to help users learn
-and troubleshoot the llm.rb runtime. I created this website so that new
-llm.rb users could learn how to use it quickly and effectively. It also
-features other software I'm working on and actively maintain.
+r.uby.dev is my personal website where I showcase the projects
+I actively maintain. I often run different experiments on this
+website. The website includes an llm.rb agent that visitors can
+use to learn about my projects.
 
 ---
 
@@ -46,11 +42,9 @@ features other software I'm working on and actively maintain.
 
 I was the most senior engineer on the 4-5 person AI team, outside the
 team lead, and I led the initiative that replaced the company's Python
-chatbot with a Ruby system built on
-[llm.rb](https://github.com/r-uby-dev/llm) (the open source runtime
-that I authored). The migration was my idea, and I supplied the runtime.
-The replacement ran inside the Rails application instead of a separate
-Python service.
+chatbot with a Ruby system built on llm.rb. The replacement ran inside
+our Rails application instead of a separate Python service that was
+hosted on AWS.
 
 - Cut responses from 15-20 seconds to 2-3 seconds.
 - Cut operation costs by moving the chatbot inside a monolith Rails application.
