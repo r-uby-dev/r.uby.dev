@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/r-uby-dev/llm.git
-  revision: 472b3a6e8dcefc7b72bb1b134df93b1039495271
+  revision: 644531dafc8c01b6103a3642cdcb8092f412e328
   specs:
     llm.rb (15.1.0)
 
