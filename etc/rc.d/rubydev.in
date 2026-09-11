@@ -63,7 +63,7 @@ rubydev_start()
 	[ -n "$rubydev_session_secret" ] && export SESSION_SECRET="$rubydev_session_secret"
 	# Apply pending migrations against the PostgreSQL database, then start
 	# the service. (PostgreSQL needs no local data dir or ownership steps.)
-	"$rubydev_bundle" exec rake db:migrate || return 1
+	"$rubydev_bundle" exec rake roda:llm:db:migrate || return 1
 	/usr/sbin/daemon -f -p "$pidfile" -t "$name" -u "$rubydev_user" -o "$rubydev_logfile" \
 		"$rubydev_bundle" exec falcon host
 }
