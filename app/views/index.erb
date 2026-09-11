@@ -3,7 +3,7 @@
     <%= svg!("rubydev-workmark.svg") %>
   </a>
 
-  <script src="/roda-llm/web-component.js?v=<%= Raven.asset_version("roda-llm/web-component.js") %>"></script>
+  <script src="/roda-llm/htmlelement.js?v=<%= Raven.version %>"></script>
   <agent-console agent="robert" prompt="&gt;" placeholder="Ready when you are">
     <div slot="placeholder">
       <%= render "partials/greeting" %>

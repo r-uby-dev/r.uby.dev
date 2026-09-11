@@ -43,25 +43,6 @@ module Raven
   end
 
   ##
-  # Cache busting for an asset served out of public/. The version is a
-  # digest of the file itself rather than the commit, so a rebuilt asset
-  # gets a new URL even when it has not been committed yet.
-  #
-  # @param [String] path
-  #  A path relative to public/
-  # @return [String]
-  def self.asset_version(path)
-    file = File.join(root, "public", path)
-    return version unless File.file?(file)
-    stamp = File.mtime(file).to_f
-    @asset_versions ||= {}
-    cached = @asset_versions[path]
-    return cached[1] if cached && cached[0] == stamp
-    @asset_versions[path] = [stamp, Digest::SHA1.file(file).hexdigest[0, 10]]
-    @asset_versions[path][1]
-  end
-
-  ##
   # Establish database connection
   raw    = ERB.new(File.read(File.join(__dir__, "database.yml"))).result
   config = YAML.safe_load(raw, aliases: true)
