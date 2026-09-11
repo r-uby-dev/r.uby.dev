@@ -10,9 +10,12 @@ module Raven::Routes
       check_template_mtime: true
     plugin :public, root: File.join(Raven.root, "public")
     plugin :sessions, secret: ENV["SESSION_SECRET"] || "change me" * 24
-    plugin :route_csrf, require_request_specific_tokens: false, check_header: true
+    plugin :route_csrf,
+      require_request_specific_tokens: false,
+      check_header: true,
+      csrf_failure: :empty_403
     plugin :all_verbs
-    plugin :agent, agents: [{class: Robert, scope: Raven::Scopes::Session}]
+    plugin :agent, agents: [{class: Robert, resolver: Raven::Resolvers::Session}]
 
     route do |r|
       r.public
@@ -54,21 +57,6 @@ module Raven::Routes
          </object>)
     end
 
-    ##
-    # Inlines a JavaScript file as a <script> in the page, so
-    # it loads without an extra network round-trip.
-    # @param [String] name
-    #  The JS file name within public/assets/js
-    # @return [String]
-    #  A script tag with the file contents inlined
-    def js!(name)
-      root = File.expand_path("../../public/assets/js/", __dir__)
-      path = File.expand_path(File.join(root, name))
-      unless path.start_with?(root + File::SEPARATOR) and File.file?(path)
-        raise ArgumentError, "js file not found: #{name}"
-      end
-      %(<script>#{File.read(path)}</script>)
-    end
     include Base64
 
     ##

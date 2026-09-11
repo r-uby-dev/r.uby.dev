@@ -1,15 +1,14 @@
 GIT
   remote: https://github.com/r-uby-dev/llm.git
-  revision: 644531dafc8c01b6103a3642cdcb8092f412e328
+  revision: cd1d6f700bb47f8cb01f5752fb901b8ea2733500
   specs:
-    llm.rb (15.1.0)
+    llm.rb (15.2.0)
 
-GIT
-  remote: https://github.com/r-uby-dev/roda-llm.git
-  revision: d80ea499cf3ff2c3aefc34400a96d5c5a802bdd3
+PATH
+  remote: ../roda-llm
   specs:
     roda-llm (0.1.0)
-      llm.rb (~> 15.1)
+      llm.rb (~> 15.2)
       roda (~> 3.85)
       roda-sse (~> 0.3)
 
@@ -98,7 +97,7 @@ GEM
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
     io-endpoint (0.17.2)
-    io-event (1.21.1)
+    io-event (1.22.0)
     io-stream (0.14.0)
       openssl (>= 3.3)
     irb (1.18.0)
@@ -314,7 +313,7 @@ CHECKSUMS
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   io-endpoint (0.17.2) sha256=3feaf766c116b35839c11fac68b6aaadc47887bb488902a57bf8e1d288fb3338
-  io-event (1.21.1) sha256=b3088f89ad67edf9be9fc2f48a5fae0790e92862487551eeb337b49098eb99e6
+  io-event (1.22.0) sha256=4936d38dfcf2291d897707fd94690f1a63fdb1ea3ab4fa63c6739fc6c61e1534
   io-stream (0.14.0) sha256=07d9b13ea2066ccbbc761fff8d69ad5a31e47561d31e02cc271f3ed9c1a8f1cd
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
@@ -322,7 +321,7 @@ CHECKSUMS
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.5) sha256=fd1e39a51a28bf3eec959379985a72e296e9f9acfce46f6a79d31ca8760803cc
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
-  llm.rb (15.1.0)
+  llm.rb (15.2.0)
   localhost (1.8.0) sha256=df7ea825b4f64949c588c17efac86bc47ddc4460d723778abe933b71759b2701
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   minitest (6.0.6) sha256=153ea36d1d987a62942382b61075745042a2b3123b1cd48f4c3675af9cc7d6f1

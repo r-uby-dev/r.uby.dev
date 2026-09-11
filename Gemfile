@@ -17,7 +17,6 @@ gem "yard"
 gem "kramdown"
 gem "kramdown-parser-gfm"
 gem "redcarpet"
-gem "rouge"
 gem "tilt"
 
 ##
@@ -27,7 +26,7 @@ gem "paranoia"
 ##
 # LLM gems
 gem "llm.rb", github: "r-uby-dev/llm"
-gem "roda-llm", github: "r-uby-dev/roda-llm"
+gem "roda-llm", path: "../roda-llm" #, github: "r-uby-dev/roda-llm"
 gem "net-http-persistent"
 gem "async"
 gem "xchan.rb"

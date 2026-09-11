@@ -15,7 +15,7 @@
 Welcome to the r.uby.dev website.
 
 The site runs a chatbot that is an [llm.rb](https://github.com/r-uby-dev/llm#readme)
-agent connected to the llm.rb, mruby-llm and r.uby.dev GitHub repositories.
+agent connected to the llm.rb, roda-llm and r.uby.dev GitHub repositories.
 It answers questions about those projects, and its answers are grounded in
 their source code (and documentation).
 

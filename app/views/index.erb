@@ -3,29 +3,48 @@
     <%= svg!("rubydev-workmark.svg") %>
   </a>
 
-  <section class="home-console" id="home-console">
-    <div class="console-output" id="console-output" aria-live="polite">
-      <div class="console-status" id="console-status"></div>
-      <div class="console-answer" id="console-answer">
-        <%= render "partials/greeting" %>
-      </div>
-      <template id="console-answer-template">
-        <%= render "partials/greeting" %>
-      </template>
+  <script src="/roda-llm/web-component.js?v=<%= Raven.asset_version("roda-llm/web-component.js") %>"></script>
+  <agent-console agent="robert" prompt="&gt;" placeholder="Ready when you are">
+    <div slot="placeholder">
+      <%= render "partials/greeting" %>
     </div>
-    <form class="console-form" id="console-form" autocomplete="off">
-      <span class="console-prompt">&gt;</span>
-      <input disabled class="console-input" type="text" placeholder="Almost ready">
-      <button class="console-expand" type="button" title="Expand chat" aria-label="Expand chat" aria-expanded="false">
-        <svg class="icon-expand" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
-        <svg class="icon-collapse" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
-      </button>
-      <button class="console-reset" type="button" title="Reset conversation" aria-label="Reset conversation">
-        <svg class="console-reset-icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11 1.75V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75ZM4.496 6.675l.66 6.6a.25.25 0 0 0 .249.225h5.19a.25.25 0 0 0 .249-.225l.66-6.6a.75.75 0 0 1 1.492.149l-.66 6.6A1.748 1.748 0 0 1 10.595 15h-5.19a1.75 1.75 0 0 1-1.741-1.575l-.66-6.6a.75.75 0 1 1 1.492-.15ZM6.5 1.75V3h3V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25Z"/></svg>
-      </button>
-    </form>
-    <p class="console-note">powered by <a target="_blank" href="https://github.com/r-uby-dev/llm#readme">llm.rb</a></p>
-  </section>
+    <svg slot="reset-icon"
+         class="console-reset-icon"
+         viewBox="0 0 16 16"
+         width="16" height="16"
+         fill="currentColor"
+         aria-hidden="true">
+         <path d="M11 1.75V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75ZM4.496 6.675l.66 6.6a.25.25 0 0 0 .249.225h5.19a.25.25 0 0 0 .249-.225l.66-6.6a.75.75 0 0 1 1.492.149l-.66 6.6A1.748 1.748 0 0 1 10.595 15h-5.19a1.75 1.75 0 0 1-1.741-1.575l-.66-6.6a.75.75 0 1 1 1.492-.15ZM6.5 1.75V3h3V1.75a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25Z"/>
+    </svg>
+
+    <img slot="tool.*.call-icon" src="/images/github.svg" alt="">
+    <img slot="tool.*.return-icon" src="/images/github.svg" alt="">
+    <span slot="tool.search_repositories.call">Searching repositories&hellip;</span>
+    <span slot="tool.search_repositories.return">Searched repositories</span>
+    <span slot="tool.search_code.call">Searching code&hellip;</span>
+    <span slot="tool.search_code.return">Searched code</span>
+    <span slot="tool.search_commits.call">Searching commits&hellip;</span>
+    <span slot="tool.search_commits.return">Searched commits</span>
+    <span slot="tool.search_issues.call">Searching issues&hellip;</span>
+    <span slot="tool.search_issues.return">Searched issues</span>
+    <span slot="tool.get_file_contents.call">Reading source code&hellip;</span>
+    <span slot="tool.get_file_contents.return">Read source code</span>
+    <span slot="tool.get_commit.call">Reading commit&hellip;</span>
+    <span slot="tool.get_commit.return">Read commit</span>
+    <span slot="tool.list_commits.call">Listing commits&hellip;</span>
+    <span slot="tool.list_commits.return">Listed commits</span>
+    <span slot="tool.list_branches.call">Listing branches&hellip;</span>
+    <span slot="tool.list_branches.return">Listed branches</span>
+    <span slot="tool.list_issues.call">Listing issues&hellip;</span>
+    <span slot="tool.list_issues.return">Listed issues</span>
+    <span slot="tool.list_pull_requests.call">Listing pull requests&hellip;</span>
+    <span slot="tool.list_pull_requests.return">Listed pull requests</span>
+    <span slot="tool.pull_request_read.call">Reading pull request&hellip;</span>
+    <span slot="tool.pull_request_read.return">Read pull request</span>
+    <span slot="tool.issue_read.call">Reading issue&hellip;</span>
+    <span slot="tool.issue_read.return">Read issue</span>
+  </agent-console>
+  <p class="console-note">powered by <%= anchor!(name: "llm.rb", href: "https://github.com/r-uby-dev/llm#readme") %></p>
 
   <section class="home-contact">
     <h2 class="home-section-title">About</h2>

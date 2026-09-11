@@ -67,14 +67,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.outbound-icon {
-  display: inline-block;
-  width: 0.95em;
-  height: 0.95em;
-  margin-left: 0.28em;
-  vertical-align: -0.08em;
-}
-
 h1 {
   margin: 0 0 8px;
   font-size: 32px;
@@ -122,66 +114,6 @@ section {
   padding: 28px 0;
 }
 
-/* Features */
-.features > p:has(> strong) {
-  margin-bottom: 0;
-}
-
-.features > p > strong {
-  display: block;
-  margin: 26px 0 10px;
-  color: var(--fg);
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.features ul {
-  margin: 0 0 4px;
-  padding-left: 0;
-  list-style: none;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.65;
-}
-
-.features ul li {
-  margin: 0 0 14px;
-  padding-left: 20px;
-  position: relative;
-}
-
-.features ul li::before {
-  content: "";
-  position: absolute;
-  left: 1px;
-  top: 0.55em;
-  width: 7px;
-  height: 7px;
-  border-radius: 2px;
-  background: var(--accent);
-  opacity: 0.6;
-}
-
-.features ul li > strong {
-  color: var(--fg);
-  font-weight: 700;
-}
-
-/* Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 /* Detail Headers */
 header {
   display: grid;
@@ -191,132 +123,9 @@ header {
   padding-bottom: 24px;
 }
 
-.summary {
-  max-width: 680px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.hero-image {
-  width: 120px;
-  height: auto;
-}
-
-.site-logo {
-  display: flex;
-  justify-content: center;
-  width: min(760px, calc(100% - 32px));
-  margin: 40px auto 24px;
-}
-
-.site-logo img {
-  display: block;
-  width: min(420px, 92%);
-  height: auto;
-}
-
-.logo-page {
-  width: min(760px, calc(100% - 32px));
-  padding-top: 0;
-}
-
-.logo-page header {
-  display: block;
-}
-
-.logo-page .summary {
-  max-width: 600px;
-}
-
 /* Home */
 .home-page {
   padding-top: 0;
-}
-
-.hero {
-  text-align: center;
-  padding: 40px 0 40px;
-}
-
-.hero-logo {
-  display: block;
-  width: min(420px, 92%);
-  height: auto;
-  margin: 0 auto 8px;
-}
-
-.hero h1 {
-  margin: 0 0 8px;
-  font-size: 36px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.hero p {
-  max-width: 520px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.hero .ssh-console {
-  max-width: 320px;
-  margin: 8px auto 0;
-  text-align: center;
-}
-
-.service {
-  border-top: 1px solid var(--line);
-  padding: 32px 0;
-}
-
-.service h2 {
-  margin: 0 0 12px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.section-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  flex: 0 0 28px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
-    var(--surface);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.section-gem {
-  display: block;
-  width: 16px;
-  height: 16px;
-}
-
-
-.service p {
-  margin: 0 0 14px;
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.service p:last-child {
-  margin-bottom: 0;
-}
-
-.current-sources {
-  margin-top: 14px;
 }
 
 /* Resume — same white canvas as the homepage */
@@ -711,7 +520,6 @@ a.project-card:hover {
 }
 
 .lang-ruby  { background: #701516; }
-.lang-mruby { background: #cc342d; }
 
 .home-contact {
   margin-top: 0;
@@ -755,308 +563,179 @@ a.project-card:hover {
   color: var(--accent);
 }
 
-.home-console {
+/*
+ * Agent console.
+ *
+ * The console is rendered by the roda-llm web component, which owns its
+ * markup and styles in a shadow root. It is dressed from here through the
+ * knobs the component publishes - custom properties for its scale and
+ * frame, ::part() for the boxes that need a nudge - and the target is the
+ * console this page used to hand-roll: a 14px terminal, hairline frame,
+ * rounded at the top and open at the bottom, with the status panel above
+ * the answer and "powered by llm.rb" underneath.
+ */
+agent-console {
+  display: block;
   margin-top: 40px;
+
+  --ac-font-size: 0.875em;   /* 14px */
+  --ac-line-height: 1.6;
+  --ac-gap: 0.571em;         /* 8px between the console's rows */
+  --ac-radius: 8px;
+  --ac-chip-radius: 6px;
+
+  /* The expanded console takes most of the viewport, as it did before. */
+  --ac-expanded-height: min(80vh, 44rem);
+}
+
+/* Frame. The old console was two boxes stacked: the output area carried
+   the border and the rounded top, and the input row below it had no rule
+   above it and nothing underneath. One card with the bottom border and
+   the form's top border dropped reads the same. The side padding is the
+   reading column: the same measure expanded and collapsed, so the two
+   read alike. */
+agent-console::part(console) {
   border-bottom: 0;
-  padding: 0;
+  border-radius: 8px 8px 0 0;
 }
 
-.console-expand {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  padding: 2px;
+/* The reading column. The padding belongs to the answer's own boxes, not
+   to the console: that way the console's furniture keeps its full width,
+   the composer runs edge to edge instead of being squeezed in with the
+   prose, and the scrollbar stays out at the console's right edge rather
+   than sitting in the middle of the padding.
+
+   Collapsed, the console is only 726px wide, so the inset is modest and
+   the text takes most of it. */
+agent-console::part(body) {
+  padding-left: clamp(8px, 1vw, 16px);
+  padding-right: clamp(8px, 1vw, 16px);
 }
 
-.console-expand:hover {
+/* Expanded, the console takes the viewport up to 900px, and the reading
+   column is inset from it so the text does not run the full width of a
+   desktop. */
+agent-console[expanded]::part(body) {
+  padding-left: clamp(20px, 5vw, 72px);
+  padding-right: clamp(20px, 5vw, 72px);
+}
+
+agent-console::part(form) {
+  border-top: 0;
+}
+
+/* The status bar at the foot of the console. The count is the control -
+   it opens the list - so it answers to the pointer, and the whole bar
+   lifts to the accent when you reach for it. The live call carries the
+   ink, because it is the only thing that is moving. */
+agent-console::part(trace-summary):hover {
   color: var(--accent);
 }
 
-.console-expand .icon-collapse {
-  display: none;
-}
-
-.home-console.is-expanded .console-expand .icon-expand {
-  display: none;
-}
-
-.home-console.is-expanded .console-expand .icon-collapse {
-  display: block;
-}
-
-.home-console.is-expanded {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--surface);
-  padding: 32px clamp(16px, 10vw, 200px);
-}
-
-.home-console.is-expanded .console-output {
-  height: auto;
-  flex: 1;
-  width: 100%;
-  max-width: 900px;
-  border-radius: 0;
-}
-
-.home-console.is-expanded .console-answer {
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 24px clamp(16px, 4vw, 48px) 32px;
-}
-
-.home-console.is-expanded .console-answer pre {
-  max-width: 100%;
-}
-
-.home-console.is-expanded .console-form {
-  width: 100%;
-  max-width: 900px;
-  border-radius: 0 0 8px 8px;
-}
-
-.home-console.is-expanded .console-note {
-  margin-top: 12px;
-}
-
-.console-output {
-  position: relative;
-  height: 265px;
-  overflow-y: auto;
-  padding: 14px 16px;
-  background: #ffffff;
-  border: 1px solid var(--line);
-  border-bottom: 0;
-  border-radius: 8px 8px 0 0;
+agent-console::part(status) {
   color: var(--fg);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 14px;
-  line-height: 1.5;
+}
+
+/* The trace itself sits between the answer and the composer, so opening
+   the list pushes the streamed content up and closing it lets the content
+   back down. */
+agent-console::part(trace) {
+  flex: 0 0 auto;
+  max-height: 40%;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+/* Answers were sans, in ink. The console's furniture - composer, status,
+   action rows - is mono, but the prose it writes is not. */
+agent-console::part(answer) {
+  color: var(--fg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   overflow-wrap: break-word;
 }
 
-.console-status {
-  display: none;
-  margin: 0 0 10px;
-  font-size: 13px;
-}
-
-.console-status.is-active {
-  display: block;
-  margin: 0 0 10px;
-  padding: 8px 10px;
-  background: var(--surface);
-  border-radius: 6px;
-}
-
-.console-status-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 4px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 12px;
-  line-height: 1.2;
+/* The placeholder is page markup - slotted in, not part of the shadow
+   tree - so it is styled here, to match the answer block the old console
+   rendered its greeting into. */
+agent-console [slot="placeholder"] {
   color: var(--fg);
-  animation: console-pulse 1.6s ease-in-out infinite;
-}
-
-.console-status-item:last-child {
-  margin-bottom: 0;
-}
-
-.console-status-icon {
-  display: block;
-  flex: none;
-  opacity: 0.75;
-}
-
-.console-status-item.is-done {
-  animation: none;
-  opacity: 0.72;
-}
-
-.console-status-item.is-thinking {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  color: var(--muted);
-  font-style: italic;
-}
-
-.console-status-title {
-  margin: 8px 0 4px;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.console-status-title:first-child {
-  margin-top: 0;
-}
-
-@keyframes console-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.console-answer {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 14px;
   line-height: 1.6;
 }
 
-.console-answer.is-error {
-  color: #b42318;
-}
-
-.console-answer p {
-  margin: 0 0 12px;
+agent-console [slot="placeholder"] p,
+agent-console [slot="placeholder"] ul,
+agent-console [slot="placeholder"] ol {
   color: var(--fg);
   font-size: 14px;
 }
 
-.console-answer p:last-child {
+agent-console [slot="placeholder"] p {
+  margin: 0 0 12px;
+}
+
+agent-console [slot="placeholder"] ul,
+agent-console [slot="placeholder"] ol {
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+
+agent-console [slot="placeholder"] li {
+  margin-bottom: 6px;
+}
+
+/* The greeting opens with a paragraph that carries its own top margin;
+   keep that, but drop the trailing one so the placeholder does not end
+   in dead space. */
+agent-console [slot="placeholder"] > :last-child {
   margin-bottom: 0;
 }
 
-.console-answer ul,
-.console-answer ol {
-  margin: 0 0 10px;
-  padding-left: 20px;
-  color: var(--fg);
-  font-size: 14px;
-}
-
-.console-answer li {
-  margin-bottom: 6px;
-  color: var(--fg);
-}
-
-.console-answer strong {
-  color: var(--fg);
-  font-weight: 700;
-}
-
-.console-answer em {
-  color: var(--muted);
-}
-
-.console-answer code {
-  padding: 0.12em 0.28em;
-  border-radius: 3px;
-  background: var(--surface);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.9em;
-  white-space: break-spaces;
-}
-
-.console-answer pre {
-  margin: 12px 0 14px;
-  padding: 12px 14px;
-  overflow-x: auto;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
-  border-radius: 6px;
-}
-
-.console-answer pre code {
-  display: block;
-  padding: 0;
-  background: transparent;
-  border-left: 0;
-  border-radius: 0;
-  font-size: 13px;
-  line-height: 1.6;
-  white-space: pre;
-  tab-size: 2;
-  overflow-wrap: normal;
-  word-break: normal;
-}
-
-.console-answer a {
-  color: var(--accent);
-}
-
-.console-answer h1,
-.console-answer h2,
-.console-answer h3,
-.console-answer h4 {
-  margin: 14px 0 8px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.console-answer h1 { font-size: 18px; }
-.console-answer h2 { font-size: 16px; }
-.console-answer h3 { font-size: 15px; }
-.console-answer h4 { font-size: 14px; }
-
-.console-form {
-  display: flex;
+/* Expanded, the console leaves the page and takes the viewport over a
+   muted backdrop, as it did before. The component mirrors the state onto
+   the host for exactly this, so the page can dress it. */
+agent-console[expanded] {
   align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  background: #ffffff;
-  border: 1px solid var(--line);
-  border-top: 0;
-  border-bottom: 0;
-  border-radius: 0;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  margin: 0;
+  /* More air around the console than the page gives it, so the expanded
+     console reads as centred rather than edge to edge. */
+  padding: clamp(40px, 10vh, 120px) clamp(16px, 10vw, 200px);
+  position: fixed;
+  z-index: 50;
+
+  /* Let the console fill the viewport instead of taking the fixed
+     expanded height the component uses on its own. */
+  --ac-expanded-height: auto;
 }
 
-.console-prompt {
-  color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 14px;
+agent-console[expanded]::part(console) {
+  border-bottom: 1px solid var(--line);
+  border-radius: 0 0 8px 8px;
+  flex: 1 1 auto;
+  height: auto;
+  max-width: 900px;
+  width: 100%;
 }
 
-.console-input {
-  flex: 1;
-  border: 0;
-  outline: none;
-  background: transparent;
-  color: var(--fg);
-  font-size: 14px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
-
+/* "powered by llm.rb", sitting under the console as it always has. */
 .console-note {
   margin: 8px 0 0;
-  text-align: right;
   color: var(--muted);
   font-size: 12px;
+  text-align: right;
 }
 
-.console-reset {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  padding: 2px;
-}
-
-.console-reset:hover {
-  color: var(--accent);
-}
-
-.console-reset-icon {
+/* The reset icon is slotted in from this page, so it is sized here
+   rather than by the component. */
+agent-console .console-reset-icon {
   display: block;
+  height: 16px;
+  width: 16px;
 }
 
 @media (max-width: 640px) {
@@ -1064,9 +743,6 @@ a.project-card:hover {
     grid-template-columns: 1fr;
   }
 
-  .console-output {
-    height: 140px;
-  }
 }
 
 /* Code */
@@ -1163,31 +839,6 @@ pre.highlight code {
   }
 }
 
-.ssh-console {
-  margin: 12px 0 0;
-  padding: 11px 14px;
-  overflow-x: auto;
-  background: var(--surface);
-  border-left: 3px solid var(--accent);
-  color: var(--fg);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.ssh-console code {
-  border: none;
-  background: none;
-  color: inherit;
-  padding: 0;
-}
-
-.hero-ssh {
-  width: 260px;
-  margin: 0 auto 12px;
-  text-align: center;
-}
-
 /* Tables */
 table {
   width: 100%;
@@ -1228,299 +879,11 @@ td code {
   font-size: 13px;
 }
 
-/* Try Blocks */
-.try-options {
-  display: grid;
-  gap: 28px;
-}
-
-.try-method-label {
-  display: inline-block;
-  margin: 0 0 8px;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.try-method p {
-  max-width: 680px;
-}
-
-/* FAQ */
-.faq-section .faq-item summary {
-  cursor: pointer;
-}
-
-.faq-section .faq-item[open] summary {
-  margin-bottom: 10px;
-}
-
-.faq-section .faq-item p {
-  margin-bottom: 10px;
-}
-
-.faq-section .faq-item p:last-child,
-.faq-section .faq-item ul:last-child {
-  margin-bottom: 0;
-}
-
-.faq-section .faq-item ul {
-  margin: 0 0 12px;
-}
-
-.faq-section .faq-label {
-  margin: 12px 0 6px;
-  font-weight: 600;
-}
-
-.faq-section .faq-label:first-of-type {
-  margin-top: 0;
-}
-
-.faq-section .faq-flags {
-  line-height: 1.5;
-}
-
-/* Showcase */
-.showcase {
-  display: grid;
-  gap: 22px;
-}
-
-.project {
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
-}
-
-.project:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.project p:last-child {
-  margin-bottom: 0;
-}
-
-/* llm.rb Page */
-.quick-links {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  justify-content: center;
-  gap: 10px;
-  margin-top: 16px;
-  text-align: center;
-}
-
-.quick-links a {
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 6px 10px;
-  color: var(--fg);
-  font-size: 14px;
-}
-
-.quick-links a:hover {
-  border-color: var(--accent);
-  text-decoration: none;
-}
-
-@media (max-width: 640px) {
-  .quick-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.examples {
-  display: grid;
-  gap: 24px;
-}
-
-.install-copy {
-  margin-bottom: 14px;
-}
-
-.example {
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-}
-
-.example:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-/* Deep Dive */
-.deepdive {
-  width: min(1120px, calc(100% - 48px));
-}
-
-/* Mobile sidebar toggle */
-.deepdive-toggle {
-  display: none;
-}
-
-.deepdive-toggle-btn {
-  display: none;
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  z-index: 100;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--surface);
-  align-items: center;
-  justify-content: center;
-}
-
-.deepdive-toggle-icon {
-  display: block;
-  width: 16px;
-  height: 2px;
-  background: var(--fg);
-  position: relative;
-}
-
-.deepdive-toggle-icon::before,
-.deepdive-toggle-icon::after {
-  content: "";
-  display: block;
-  width: 16px;
-  height: 2px;
-  background: var(--fg);
-  position: absolute;
-  left: 0;
-}
-
-.deepdive-toggle-icon::before { top: -5px; }
-.deepdive-toggle-icon::after  { top: 5px; }
-
-.deepdive-sidebar-header {
-  display: none;
-}
-
-/* Content area — shared across index, topic, book */
-.deepdive-content {
+/* Content area — shared across index, topic{
   min-width: 0;
 }
 
-.deepdive-content h2 {
-  margin: 0 0 14px;
-  border-top: 1px solid var(--line);
-  padding-top: 32px;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  scroll-margin-top: 28px;
-}
-
-.deepdive-content h2:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.deepdive-content h3 {
-  margin: 30px 0 10px;
-  color: var(--fg);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.3;
-  scroll-margin-top: 24px;
-}
-
-.deepdive-content h4 {
-  display: inline-flex;
-  align-items: center;
-  margin: 24px 0 10px;
-  padding: 0 0 2px;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  line-height: 1.3;
-  border-bottom: 1px solid var(--line);
-  scroll-margin-top: 20px;
-}
-
-.deepdive-content h5 {
-  margin: 20px 0 8px;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4;
-  scroll-margin-top: 16px;
-}
-
-.deepdive-content p {
-  max-width: 74ch;
-  margin-bottom: 17px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--fg);
-}
-
-.deepdive-content ul,
-.deepdive-content ol {
-  max-width: 74ch;
-  margin: 0 0 20px;
-  padding-left: 24px;
-}
-
-.deepdive-content li {
-  margin-bottom: 8px;
-  line-height: 1.75;
-  color: var(--fg);
-}
-
-/* Links */
-.deepdive-content p a,
-.deepdive-content li a,
-.deepdive-content blockquote a,
-.deepdive-content table a {
-  color: var(--accent);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.deepdive-content p a:hover,
-.deepdive-content li a:hover,
-.deepdive-content blockquote a:hover,
-.deepdive-content table a:hover {
-  text-decoration: underline;
-}
-
-/* Tables */
-.deepdive-content table {
-  width: min(100%, 74ch);
-  margin: 24px 0 30px;
-  font-size: 13px;
-  border-collapse: collapse;
-}
-
-.deepdive-content th,
-.deepdive-content td {
-  padding: 9px 10px;
-  border-bottom: 1px solid var(--line);
-  text-align: left;
-  vertical-align: top;
-}
-
-.deepdive-content thead th {
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* Code blocks — clean rectangle, no accent */
-.deepdive-content pre {
+/* Code blocks — clean rectangle{
   width: min(100%, 86ch);
   margin: 24px 0 32px;
   border-radius: 6px;
@@ -1529,230 +892,9 @@ td code {
   overflow: auto;
 }
 
-.deepdive-content pre code {
-  display: block;
-  padding: 16px 18px 18px;
-  font-size: 13px;
-  line-height: 1.6;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: #e6edf3;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-}
-
-.deepdive-content pre code.hljs,
-.deepdive-content pre .hljs {
-  background: transparent;
-}
-
-.deepdive-content code:not(pre code) {
-  padding: 0.12em 0.28em;
-  border-radius: 3px;
-  background: var(--surface);
-  color: var(--fg);
-  font-size: 0.88em;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-}
-
-.deepdive-content blockquote {
-  max-width: 74ch;
-  margin: 22px 0 28px;
-  border-left: 2px solid var(--line);
-  padding: 0 0 0 14px;
-}
-
-.deepdive-content blockquote p {
-  margin-bottom: 0;
-  color: var(--muted);
-}
-
-.deepdive-content hr {
-  max-width: 74ch;
-  margin: 34px 0;
-  border: 0;
-  border-top: 1px solid var(--line);
-}
-
-/* Layout — sidebar + content */
-.deepdive-layout {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 48px;
-  align-items: start;
-}
-
-/* Sidebar */
-.deepdive-sidebar {
-  position: sticky;
-  top: 24px;
-  align-self: start;
-}
-
-.deepdive-back {
-  margin: 0 0 20px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--fg);
-}
-
-.deepdive-back a {
-  color: var(--fg);
-  text-decoration: none;
-}
-
-.deepdive-back a:hover {
-  color: var(--accent);
-}
-
-/* Group nav in sidebar */
-.deepdive-group-nav {
-  margin-bottom: 4px;
-  border: 0;
-}
-
-.deepdive-group-nav-title {
-  margin: 0;
-  padding: 6px 0;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  list-style: none;
-}
-
-.deepdive-group-nav-title::-webkit-details-marker {
-  display: none;
-}
-
-.deepdive-group-nav-title:hover {
-  color: var(--fg);
-}
-
-.deepdive-group-nav[open] .deepdive-group-nav-title {
-  margin-bottom: 4px;
-}
-
-.deepdive-group-nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 8px;
-}
-
-.deepdive-group-nav-list li {
-  margin: 0;
-  line-height: 1.4;
-}
-
-.deepdive-group-nav-list a {
-  display: block;
-  padding: 3px 0;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 400;
-  text-decoration: none;
-  line-height: 1.5;
-}
-
-.deepdive-group-nav-list a:hover {
-  color: var(--fg);
-}
-
-.deepdive-group-nav-list a.is-active {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* Prev/next in sidebar */
-.deepdive-sidebar-nav {
-  display: grid;
-  gap: 4px;
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-
-.deepdive-sidebar-nav a,
-.deepdive-prev,
-.deepdive-next {
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.deepdive-sidebar-nav a:hover,
-.deepdive-prev:hover,
-.deepdive-next:hover {
-  color: var(--accent);
-}
-
-/* Bottom nav */
-.deepdive-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  max-width: 74ch;
-  margin-top: 36px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-}
-
-.deepdive-nav a {
-  color: var(--fg);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.deepdive-nav a:hover {
-  color: var(--accent);
-}
-
-.deepdive-groups {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-}
-
-.deepdive-group {
-  padding-top: 24px;
-}
-
-.deepdive-group h2 {
-  margin: 0 0 12px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.deepdive-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.deepdive-list li {
-  margin: 0;
-  padding: 6px 0;
-  line-height: 1.5;
-}
-
-.deepdive-list a {
-  color: var(--accent);
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.deepdive-list a:hover {
-  text-decoration: underline;
-}
-
 
 /* Footer */
-footer,
-.footer {
+footer{
   padding-top: 22px;
   color: var(--muted);
   font-size: 13px;
@@ -1761,20 +903,11 @@ footer,
   flex-wrap: wrap;
 }
 
-.footer {
-  border-top: 1px solid var(--line);
-  margin-top: 32px;
-  padding-top: 24px;
-  gap: 16px;
-}
-
-footer a,
-.footer a {
+footer a{
   color: var(--muted);
 }
 
-footer a:hover,
-.footer a:hover {
+footer a:hover{
   color: var(--accent);
 }
 

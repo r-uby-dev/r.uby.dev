@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="Ask questions about the llm.rb runtime.">
     <meta name="twitter:image" content="https://r.uby.dev/images/rubydev.svg">
 
-    <link rel="stylesheet" href="/css/main.css?v=<%= Raven.version %>">
+    <link rel="stylesheet" href="/css/main.css?v=<%= Raven.asset_version("css/main.css") %>">
     <%= csrf_metatag %>
   </head>
   <body class="home-body">
@@ -35,6 +35,5 @@
       src='https://static.cloudflareinsights.com/beacon.min.js'
       data-cf-beacon='{"token": "b565dccbae55404faf2c00fc90b87f9a"}'>
     </script>
-    <%= js!("main.js") %>
   </body>
 </html>

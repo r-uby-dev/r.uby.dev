@@ -48,12 +48,13 @@ bundle:
 	$(BUNDLE) config set path .bundle/gems
 	$(BUNDLE) install
 
-# Build frontend assets locally (never on the server). Produces
-# public/assets/js/main.js and public/css/main.css, which are committed
-# and shipped by `install`.
+# Build frontend assets locally (never on the server). The CSS bundle is
+# committed and shipped by `install`; the web component is copied out of
+# the roda-llm gem so the app serves the same asset the plugin ships.
 assets:
 	npm install
 	npm run build
+	bundle exec rake roda:llm:assets:install
 
 # Deploy: sync the app in place, apply any pending migrations, then do a
 # graceful (zero-downtime) restart via the rc.d script. Migrations run
@@ -66,7 +67,7 @@ deploy: install
 		echo "warning: $(DB_PASSWORD_KEYS) is not set in rc.conf; production migrate may fail"; \
 	fi; \
 	cd "$(DESTDIR)$(APPDIR)" && \
-	RACK_ENV=$(RACK_ENV) RUBYDEV_DB_PASSWORD="$$password" "$(BUNDLE)" exec rake db:migrate
+	RACK_ENV=$(RACK_ENV) RUBYDEV_DB_PASSWORD="$$password" "$(BUNDLE)" exec rake roda:llm:db:migrate
 	$(RC_SERVICE) "$(RC_NAME)" restart
 
 check-bundle:
