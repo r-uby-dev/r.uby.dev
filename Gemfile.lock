@@ -4,8 +4,9 @@ GIT
   specs:
     llm.rb (15.2.0)
 
-PATH
-  remote: ../roda-llm
+GIT
+  remote: https://github.com/r-uby-dev/roda-llm.git
+  revision: bc5fb9537405c021cde7900d16b7347da1a26bc6
   specs:
     roda-llm (0.1.0)
       llm.rb (~> 15.2)
@@ -175,8 +176,6 @@ GEM
     roda-sse (0.3.0)
       async (~> 2.18)
       roda (~> 3.85)
-    rouge (5.1.0)
-      strscan (~> 3.1)
     rspec (3.13.2)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -226,7 +225,6 @@ GEM
       rubocop-performance (~> 1.26.0)
     string-format (0.2.0)
     stringio (3.2.0)
-    strscan (3.1.8)
     test-cmd.rb (2.6.0)
     tilt (2.7.0)
     timeout (0.6.1)
@@ -275,7 +273,6 @@ DEPENDENCIES
   roda (~> 3.104)
   roda-llm!
   roda-sse (~> 0.3)
-  rouge
   rspec
   standard (~> 1.54)
   test-cmd.rb
@@ -361,7 +358,6 @@ CHECKSUMS
   roda (3.107.0) sha256=bf40c7a0f1fcd037ec10589a1dc98fc52ced1aece803670194ec7af0f0c77c06
   roda-llm (0.1.0)
   roda-sse (0.3.0) sha256=9a8fe00764cd5c8913cf0e1ae53da288f7463d692181452cc686b8d8094b8a95
-  rouge (5.1.0) sha256=b77c632842ab7f5147940212f0345808cccfbce864fd5b631d7d12a35ac85452
   rspec (3.13.2) sha256=206284a08ad798e61f86d7ca3e376718d52c0bc944626b2349266f239f820587
   rspec-core (3.13.6) sha256=a8823c6411667b60a8bca135364351dda34cd55e44ff94c4be4633b37d828b2d
   rspec-expectations (3.13.5) sha256=33a4d3a1d95060aea4c94e9f237030a8f9eae5615e9bd85718fe3a09e4b58836
@@ -378,7 +374,6 @@ CHECKSUMS
   standard-performance (1.9.0) sha256=49483d31be448292951d80e5e67cdcb576c2502103c7b40aec6f1b6e9c88e3f2
   string-format (0.2.0) sha256=bc981c14116b061f12134549f32fa2d61a17b5a35dd6fd36596c21722a789af6
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
-  strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e
   test-cmd.rb (2.6.0) sha256=ccbcf8cb3b8d4b39d8786d2c91a9f89db019f35a91b08b97afdf1c53d0a2ad59
   tilt (2.7.0) sha256=0d5b9ba69f6a36490c64b0eee9f6e9aad517e20dcc848800a06eb116f08c6ab3
   timeout (0.6.1) sha256=78f57368a7e7bbadec56971f78a3f5ecbcfb59b7fcbb0a3ed6ddc08a5094accb
