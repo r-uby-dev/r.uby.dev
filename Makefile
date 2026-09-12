@@ -56,9 +56,12 @@ assets:
 	npm run build
 	bundle exec rake roda:llm:assets:install
 
-# Deploy: sync the app in place, apply any pending migrations, then do a
-# graceful (zero-downtime) restart via the rc.d script. Migrations run
-# before the reload so workers boot against the latest schema.
+# Deploy: sync the app in place, apply any pending migrations, then restart
+# the service. `restart` is a real stop-then-start, because a deploy often
+# carries something a running process cannot pick up - a new gem revision in
+# the bundle, a new falcon.rb, a new variable in the rc.d script. For the
+# common case where only application code changed, `service rubydev reload`
+# is the graceful blue-green path.
 deploy: install
 	# Inherit the database password from rc.conf (rubydev_db_password) via
 	# sysrc into the migrate step's environment so production can authenticate.

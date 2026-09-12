@@ -33,7 +33,16 @@ service(hostname) do
   preload(false)
   endpoint do
     Async::HTTP::Endpoint.parse("http://#{bind}:#{port}").with(
-      protocol: Async::HTTP::Protocol::HTTP1
+      protocol: Async::HTTP::Protocol::HTTP1,
+      # Let a second instance bind the same port. A deploy that brings new
+      # gems, a new falcon.rb or new environment cannot be picked up by a
+      # running process, so `service rubydev restart` starts a second
+      # instance alongside the first, waits until it is listening, and only
+      # then stops the old one - the port is never without a server. Every
+      # instance has to ask for this, since a socket only shares a port
+      # with others that asked for the same; the first deploy after this
+      # was added therefore still needs one plain stop and start.
+      reuse_port: true
     )
   end
 end

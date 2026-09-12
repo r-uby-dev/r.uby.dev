@@ -36,13 +36,27 @@ start_cmd="${name}_start"
 stop_cmd="${name}_stop"
 status_cmd="${name}_status"
 restart_cmd="${name}_restart"
+reload_cmd="${name}_reload"
 
 rubydev_start()
 {
-	if [ -f "$pidfile" ]; then
+	rubydev_start_instance "$pidfile"
+}
+
+# Bring up one instance, writing its pid to $1. Split out from
+# rubydev_start so a restart can start a second instance alongside the
+# running one without the two fighting over one pidfile.
+rubydev_start_instance()
+{
+	target=$1
+
+	if [ -f "$target" ] && kill -0 "$(cat "$target")" 2>/dev/null; then
 		echo "${name} is already running."
 		return 1
 	fi
+	# A pidfile with no process behind it is left over from a crash or a
+	# kill -9, and would otherwise refuse every future start. Clear it.
+	rm -f "$target"
 
 	if [ ! -d "$rubydev_dir" ]; then
 		warn "${rubydev_dir} does not exist"
@@ -64,7 +78,7 @@ rubydev_start()
 	# Apply pending migrations against the PostgreSQL database, then start
 	# the service. (PostgreSQL needs no local data dir or ownership steps.)
 	"$rubydev_bundle" exec rake roda:llm:db:migrate || return 1
-	/usr/sbin/daemon -f -p "$pidfile" -t "$name" -u "$rubydev_user" -o "$rubydev_logfile" \
+	/usr/sbin/daemon -f -p "$target" -t "$name" -u "$rubydev_user" -o "$rubydev_logfile" \
 		"$rubydev_bundle" exec falcon host
 }
 
@@ -72,23 +86,110 @@ rubydev_stop()
 {
 	if [ ! -f "$pidfile" ]; then
 		echo "${name} is not running."
-		return 1
+		return 0
 	fi
 
+	pid=$(cat "$pidfile")
 	echo "Stopping ${name}."
-	kill "$(cat "$pidfile")"
+	kill "$pid" 2>/dev/null
+
+	# Wait for it to go. The controller drains its workers on TERM and the
+	# listener is only released when the last of them is gone, so starting
+	# again too soon would fail to bind the port - which is what a scripted
+	# stop-then-start, with no human pause in the middle, would do.
+	i=0
+	while kill -0 "$pid" 2>/dev/null && [ "$i" -lt 30 ]; do
+		sleep 1
+		i=$((i + 1))
+	done
+
 	rm -f "$pidfile"
 }
 
-# Override rc.d's built-in `restart` (which is stop-then-start) with a
-# graceful Falcon blue-green restart. Sending SIGHUP makes Falcon's
-# controller fork fresh workers from the newly deployed code, wait for
-# them to become ready, then gracefully drain the old ones — the shared
-# listener stays bound the whole time, so there is no 502 gap. If the
-# service isn't running, fall back to a plain start.
+# A restart with no gap. A deploy can carry something a running process
+# cannot pick up - a new gem revision in the bundle, a new falcon.rb, a new
+# variable in this script - and a SIGHUP cannot help with any of it: it
+# makes the controller fork fresh workers from the parent it already has,
+# so the workers get the new application code but the parent keeps the Ruby
+# it booted with.
+#
+# So the new instance is a new process, and the port is shared while both
+# are up: the endpoint asks for SO_REUSEPORT, so two instances can bind
+# it and the kernel hands each connection to one of them. The old instance
+# answers the whole time. Once the new one is listening, the old is asked
+# to stop, and it drains its workers on the way out.
+#
+# If the new instance cannot bind - the first deploy after SO_REUSEPORT was
+# introduced, say, since a socket only shares a port with others that asked
+# for the same - it exits, and the old instance is left exactly as it was.
 rubydev_restart()
 {
-	if [ ! -f "$pidfile" ]; then
+	if [ ! -f "$pidfile" ] || ! kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+		rm -f "$pidfile"
+		rubydev_start
+		return $?
+	fi
+
+	oldpid=$(cat "$pidfile")
+	newpidfile="${pidfile}.new"
+	before=$(rubydev_listeners)
+	rm -f "$newpidfile"
+
+	rubydev_start_instance "$newpidfile" || return 1
+
+	# Wait for the new instance to be listening: it adds sockets on the
+	# port, so a count above the one taken before the start is it having
+	# bound alongside the old instance. The same loop catches it dying on
+	# the way up, which is what a failed bind looks like.
+	echo "Waiting for the new instance to listen."
+	i=0
+	while [ "$i" -lt 30 ]; do
+		if [ ! -f "$newpidfile" ] || ! kill -0 "$(cat "$newpidfile")" 2>/dev/null; then
+			echo "The new ${name} exited while starting; leaving the old one in place."
+			rm -f "$newpidfile"
+			return 1
+		fi
+		if [ "$(rubydev_listeners)" -gt "$before" ]; then
+			break
+		fi
+		sleep 1
+		i=$((i + 1))
+	done
+
+	if [ "$i" -ge 30 ]; then
+		echo "The new ${name} never bound ${rubydev_bind}:${rubydev_port}; leaving the old one in place."
+		kill "$(cat "$newpidfile")" 2>/dev/null
+		rm -f "$newpidfile"
+		return 1
+	fi
+
+	echo "Stopping the old ${name} (pid $oldpid)."
+	kill "$oldpid" 2>/dev/null
+	i=0
+	while kill -0 "$oldpid" 2>/dev/null && [ "$i" -lt 30 ]; do
+		sleep 1
+		i=$((i + 1))
+	done
+
+	mv "$newpidfile" "$pidfile"
+}
+
+# How many sockets are on the service's port, which is how many instances
+# are listening on it.
+rubydev_listeners()
+{
+	sockstat -4 -p "$rubydev_port" 2>/dev/null | grep -c 'LISTEN'
+}
+
+# The graceful path: SIGHUP makes Falcon's controller fork fresh workers
+# from the newly deployed code, wait for them to become ready, then drain
+# the old ones. The shared listener stays bound the whole time, so there is
+# no 502 gap. Only application code is picked up. If the service isn't
+# running, fall back to a plain start.
+rubydev_reload()
+{
+	if [ ! -f "$pidfile" ] || ! kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+		rm -f "$pidfile"
 		echo "Starting ${name}."
 		rubydev_start
 		return $?
