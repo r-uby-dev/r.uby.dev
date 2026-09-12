@@ -135,6 +135,10 @@ rubydev_restart()
 	before=$(rubydev_listeners)
 	rm -f "$newpidfile"
 
+	# Both are up for a moment once the new one binds: the kernel hands
+	# each connection to one of them, and the old instance is only asked to
+	# stop when the new one is listening.
+	echo "Starting a second ${name} to take over from the running one."
 	rubydev_start_instance "$newpidfile" || return 1
 
 	# Wait for the new instance to be listening: it adds sockets on the
@@ -145,8 +149,8 @@ rubydev_restart()
 	i=0
 	while [ "$i" -lt 30 ]; do
 		if [ ! -f "$newpidfile" ] || ! kill -0 "$(cat "$newpidfile")" 2>/dev/null; then
-			echo "The new ${name} exited while starting; leaving the old one in place."
-			rm -f "$newpidfile"
+			echo "The new ${name} exited while starting; leaving the old one in place (see ${rubydev_logfile})."
+			rubydev_kill "$newpidfile"
 			return 1
 		fi
 		if [ "$(rubydev_listeners)" -gt "$before" ]; then
@@ -157,9 +161,23 @@ rubydev_restart()
 	done
 
 	if [ "$i" -ge 30 ]; then
-		echo "The new ${name} never bound ${rubydev_bind}:${rubydev_port}; leaving the old one in place."
-		kill "$(cat "$newpidfile")" 2>/dev/null
-		rm -f "$newpidfile"
+		cat <<EOF
+The new ${name} never bound ${rubydev_bind}:${rubydev_port}, so the old
+instance was left in place and is still serving. ${rubydev_logfile} has
+whatever it said about it.
+
+If the instance now running began before this script asked the socket for
+SO_REUSEPORT, that is the reason - a socket only shares its port with
+others that asked for the same - and one plain restart makes the
+transition:
+
+    service ${name} stop && service ${name} start
+
+Here is what the port looks like now, and the new instance's process:
+EOF
+		rubydev_listeners_report
+		echo "new pid: $(cat "$newpidfile" 2>/dev/null) $(kill -0 "$(cat "$newpidfile" 2>/dev/null)" 2>/dev/null && echo alive || echo gone)"
+		rubydev_kill "$newpidfile"
 		return 1
 	fi
 
@@ -174,11 +192,41 @@ rubydev_restart()
 	mv "$newpidfile" "$pidfile"
 }
 
-# How many sockets are on the service's port, which is how many instances
-# are listening on it.
+# How many sockets are listening on the service's port, which is how many
+# instances are listening on it. The port is matched in the address column
+# rather than through `sockstat -p`, whose argument has meant ports on some
+# releases and protocols on others - `sockstat -4 -p 9292` quietly matches
+# nothing on the latter, which reads as "the new instance never came up".
 rubydev_listeners()
 {
-	sockstat -4 -p "$rubydev_port" 2>/dev/null | grep -c 'LISTEN'
+	sockstat -4 -l 2>/dev/null | grep -Ec "[:.]${rubydev_port}([^0-9]|$)"
+}
+
+# The same rows, for a failure that needs explaining.
+rubydev_listeners_report()
+{
+	sockstat -4 -l 2>/dev/null | grep -E "[:.]${rubydev_port}([^0-9]|$)"
+}
+
+# Stop an instance this script started and is now abandoning, waiting for
+# it to go so a failed attempt does not leave a second server behind. The
+# graceful signal comes first; a process that will not take it is killed.
+rubydev_kill()
+{
+	target=$1
+	if [ ! -f "$target" ]; then
+		return 0
+	fi
+
+	pid=$(cat "$target")
+	kill "$pid" 2>/dev/null
+	i=0
+	while kill -0 "$pid" 2>/dev/null && [ "$i" -lt 10 ]; do
+		sleep 1
+		i=$((i + 1))
+	done
+	kill -9 "$pid" 2>/dev/null
+	rm -f "$target"
 }
 
 # The graceful path: SIGHUP makes Falcon's controller fork fresh workers
