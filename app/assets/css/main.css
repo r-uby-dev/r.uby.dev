@@ -584,6 +584,12 @@ agent-console {
   --ac-radius: 8px;
   --ac-chip-radius: 6px;
 
+  /* How far the reading column's first line sits from its top. The
+     greeting is slotted markup and a streamed answer is the component's
+     own, so the component keeps both on the same line; this is the value
+     it reads. */
+  --ac-lead: 20px;
+
   /* The expanded console takes most of the viewport, as it did before. */
   --ac-expanded-height: min(80vh, 44rem);
 }
@@ -685,9 +691,8 @@ agent-console [slot="placeholder"] li {
   margin-bottom: 6px;
 }
 
-/* The greeting opens with a paragraph that carries its own top margin;
-   keep that, but drop the trailing one so the placeholder does not end
-   in dead space. */
+/* Drop the trailing margin so the placeholder does not end in dead space;
+   the leading inset is --ac-lead, set on the console above. */
 agent-console [slot="placeholder"] > :last-child {
   margin-bottom: 0;
 }
