@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/r-uby-dev/roda-llm.git
-  revision: fbefae4ee43628e07274cdf2547c407c141ba4a1
+  revision: 5d81989bd1a3cf50bc9ea6a81af60ec6413ea012
   specs:
     roda-llm (0.1.0)
       llm.rb (~> 15.2)
