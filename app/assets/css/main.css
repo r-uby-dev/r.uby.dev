@@ -691,8 +691,8 @@ agent-console [slot="placeholder"] li {
   margin-bottom: 6px;
 }
 
-/* Drop the trailing margin so the placeholder does not end in dead space;
-   the leading inset is --ac-lead, set on the console above. */
+/* Drop the trailing margin so the placeholder does not end in dead space:
+   --ac-lead supplies the inset underneath it, the same as above. */
 agent-console [slot="placeholder"] > :last-child {
   margin-bottom: 0;
 }
